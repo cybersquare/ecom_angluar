@@ -19,6 +19,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MainToolbarComponent } from './main-toolbar/main-toolbar.component';
 import {MatCardModule} from '@angular/material/card';
 import { ContentComponent } from './content/content.component';
+import { CustomerModule } from './customer/customer.module';
+import { ResellerModule } from './reseller/reseller.module';
+import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({
@@ -41,7 +44,10 @@ import { ContentComponent } from './content/content.component';
     MatListModule,
     FlexLayoutModule ,
     MatMenuModule,
-    MatCardModule
+    MatCardModule,
+    CustomerModule,
+    ResellerModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

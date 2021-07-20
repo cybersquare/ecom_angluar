@@ -1,0 +1,38 @@
+.content {
+    position: absolute;
+    top: 65px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow-y: scroll;
+}
+
+.content-mob {
+    position: absolute;
+    top: 113px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow-y: scroll;
+}
+
+button{
+    margin-right: 3rem;
+}
+
+.full-width {
+    width: 100%;
+}
+
+mat-card{
+    width: 80%;
+    margin: auto;
+    margin-top: 10rem;
+}
+
+mat-card-header{
+    padding-top: 10px;
+    color:white;
+    background-color: #00796b;
+}
+

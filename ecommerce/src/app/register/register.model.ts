@@ -4,6 +4,9 @@ export class RegisterCustomer{
     dob:any;
     username:String = "";
     password:String = "";
-    gender:String = ""
+    gender:String = "";
+    address: String = "";
+    country: String = "";
+    phone: any;
 
 }

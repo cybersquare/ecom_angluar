@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommonService } from '../services/common.service';
 import { RegisterCustomer } from './register.model'
+import { NgForm } from '@angular/forms'
 
 
 @Component({
@@ -23,5 +24,10 @@ export class RegisterComponent implements OnInit {
       data => console.log('Success', data),
      error => console.error('Error!', error)
     )
+  }
+
+
+  registerCustomer(custRegForm:NgForm){
+    console.log(custRegForm.value)
   }
 }

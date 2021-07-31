@@ -23,6 +23,7 @@ import { MainHeaderComponent } from './main-header/main-header.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { MainToolbarComponent } from './main-toolbar/main-toolbar.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatBadgeModule} from '@angular/material/badge';
@@ -68,6 +69,7 @@ import { RegisterComponent } from './register/register.component';
     FlexLayoutModule ,
     MatMenuModule,
     MatCardModule,
+    MatTabsModule,
     
     MatProgressSpinnerModule,
     MatNativeDateModule,

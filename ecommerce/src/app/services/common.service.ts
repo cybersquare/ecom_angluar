@@ -13,7 +13,9 @@ export class CommonService {
 
   constructor(private httpclient:HttpClient) { }
 
-  registerCustomer(reg: RegisterCustomer){
+  registerCustomer(reg:RegisterCustomer){
+    console.log("in service");
+    console.log(reg);
     return this.httpclient.post<any>(this.signupUrl, reg);
   }
 }

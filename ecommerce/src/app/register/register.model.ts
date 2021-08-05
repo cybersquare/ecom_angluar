@@ -1,12 +1,13 @@
 export class RegisterCustomer{
-    fnname:String = "";
-    lname:String = "";
-    dob:any;
-    username:String = "";
-    password:String = "";
+    firstname:String = "";
+    lastname:String = "";
     gender:String = "";
+    dateofbirth:any ;
+
+    usertype="";
     address: String = "";
     country: String = "";
-    phone: any;
-
+    mobile:String = "";
+    username:String = "";
+    password:String = "";
 }

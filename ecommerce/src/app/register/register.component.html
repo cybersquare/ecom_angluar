@@ -154,7 +154,7 @@
                     <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
                 </mat-card-content>
                 <mat-card-actions>
-                    <button type="ngSubmit" mat-raised-button color="primary">Register</button>
+                    <button type="ngSubmit" [disabled]="!custRegForm.valid" mat-raised-button color="primary">Register</button>
                     <button type="reset" mat-raised-button color="accent">Reset</button>
                 </mat-card-actions>
             </mat-card>

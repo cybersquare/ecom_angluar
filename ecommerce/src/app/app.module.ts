@@ -42,6 +42,7 @@ import { ResellerModule } from './reseller/reseller.module';
 import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import {DatePipe} from '@angular/common';
 
 
 @NgModule({
@@ -84,7 +85,9 @@ import { RegisterComponent } from './register/register.component';
     ResellerModule,
     AdminModule
   ],
-  providers: [],
+  providers: [
+    DatePipe,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,17 +1,4 @@
-<mat-drawer-container class="dasboard" fxLayout="column" fxLayoutAlign="center center">
-    <mat-drawer mode="side" opened class="sidenav">
-        <mat-list role="list" class="drawer">
-            <button mat-menu-item routerLink="products" class="sidenav-font">All products</button>
-            <mat-divider></mat-divider>
-            <button mat-menu-item routerLink="addproduct" class="sidenav-font">Add product</button>
-            <mat-divider></mat-divider>
-        </mat-list>
-    </mat-drawer>
-    <mat-drawer-content>
-        <router-outlet></router-outlet>
-    </mat-drawer-content>
-</mat-drawer-container>
-<!-- <p>admin-sidenav works!</p>
+<p>admin-sidenav works!</p>
 <mat-drawer-container class="example-container" fxLayout="column" fxLayoutAlign="center center">
     <mat-drawer #drawer mode="over" class="drawer">
         <mat-list>
@@ -27,4 +14,4 @@
         <button mat-raised-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
         <router-outlet></router-outlet>
     </mat-drawer-content>
-</mat-drawer-container> -->
+</mat-drawer-container>

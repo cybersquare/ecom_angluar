@@ -18,8 +18,8 @@ import { MatListModule } from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
-
-
+import {MatTableModule} from '@angular/material/table';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 const MaterialComponents =[
@@ -41,6 +41,8 @@ const MaterialComponents =[
   MatMenuModule,
   MatCardModule,
   MatTabsModule,
+  MatTableModule,
+  MatGridListModule,
 ]
 
 

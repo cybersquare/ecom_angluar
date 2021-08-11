@@ -19,7 +19,7 @@ import { RegisterComponent } from './register/register.component';
 import {DatePipe} from '@angular/common';
 import { AuthGuard } from './auth.guard';
 import { MaterialDesignModule } from './material-design/material-design.module';
-
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -31,7 +31,7 @@ import { MaterialDesignModule } from './material-design/material-design.module';
     ContentComponent,
     LoginComponent,
     RegisterComponent,
-   
+    FooterComponent
   ],
   imports: [
     HttpClientModule ,

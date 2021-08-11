@@ -1,0 +1,22 @@
+p {
+    margin-top: 60px;
+}
+
+.example-container {
+    width: 100%;
+    /* height: 100%; */
+    margin-bottom: 0;
+}
+
+.drawer {
+    width: 200px;
+}
+
+.sidenav-elements {
+    list-style-type: none;
+}
+
+.sidenav-btn {
+    width: 100%;
+    padding: 5px;
+}

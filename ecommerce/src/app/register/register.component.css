@@ -4,7 +4,7 @@
     left: 0px;
     right: 0px;
     bottom: 0px;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
 }
 
 .content-mob {
@@ -13,26 +13,24 @@
     left: 0px;
     right: 0px;
     bottom: 0px;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
 }
 
-mat-radio-button{
+mat-radio-button {
     margin-right: 3rem;
 }
-
 
 .full-width {
     width: 100%;
 }
 
-mat-card{
+mat-card {
     width: 80%;
     margin: auto;
-    
 }
 
-mat-card-header{
+mat-card-header {
     padding-top: 10px;
-    color:white;
+    color: white;
     background-color: #00796b;
 }

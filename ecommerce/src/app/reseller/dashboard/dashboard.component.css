@@ -1,7 +1,7 @@
 .dasboard {
     position: absolute;
     top: 65px;
-    bottom: 0;
+    bottom: 50px;
     left: 0;
     right: 0;
     background: #eee;
@@ -16,3 +16,34 @@
 .sidenav {
     background-color: #3e3eb3;
 }
+
+
+/* .example-container {
+    width: 100%;
+} */
+
+
+/*
+p {
+    margin-top: 60px;
+}
+
+.example-container {
+    width: 100%;
+    bottom: 0;
+    position: sticky
+}
+
+.drawer {
+    width: 200px;
+    height: 100%;
+}
+
+.sidenav-elements {
+    list-style-type: none;
+}
+
+.sidenav-btn {
+    width: 100%;
+    padding: 5px;
+} */

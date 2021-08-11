@@ -22,6 +22,7 @@ import { MaterialDesignModule } from './material-design/material-design.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { MaterialDesignModule } from './material-design/material-design.module';
     MainToolbarComponent,
     ContentComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+   
   ],
   imports: [
     HttpClientModule ,

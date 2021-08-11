@@ -1,0 +1,18 @@
+.dasboard {
+    position: absolute;
+    top: 65px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+}
+
+.sidenav-font {
+    color: white;
+    font-size: large;
+    font-family: 'Lucida Sans';
+}
+
+.sidenav {
+    background-color: #3e3eb3;
+}

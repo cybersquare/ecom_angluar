@@ -1,12 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
-
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ResellerRoutingModule } from './reseller-routing.module';
+import { AddProductComponent } from './add-product/add-product.component';
+import { MaterialDesignModule } from '../material-design/material-design.module';
+import { ViewProductsComponent } from './view-products/view-products.component';
 @NgModule({
-  declarations: [],
+  declarations: [
+    DashboardComponent,
+    AddProductComponent,
+    ViewProductsComponent,
+   
+  ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    ResellerRoutingModule,
+    MaterialDesignModule,
+],
 })
 export class ResellerModule { }

@@ -4,8 +4,10 @@ import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
-
+import { MainToolbarComponent } from './main-toolbar/main-toolbar.component';
+// MainToolbarComponent
 const routes: Routes = [
+  { path: '', component: MainToolbarComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent , canActivate:[AuthGuard]},
   // { path: 'login', component: LoginComponent , canActivate:[AuthGuard]}, Sample - How to apply auth guard
@@ -17,3 +19,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

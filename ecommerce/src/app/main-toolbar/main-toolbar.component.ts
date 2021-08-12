@@ -6,7 +6,6 @@ import { Component, Input,} from '@angular/core';
   styleUrls: ['./main-toolbar.component.css']
 })
 export class MainToolbarComponent  {
-
   @Input() deviceXs: boolean = false;;
   topVal = 0;
   onScroll(e:any) {
@@ -21,5 +20,4 @@ export class MainToolbarComponent  {
     let e = this.deviceXs ? 160 : 130;
     return e - this.topVal;
   }
-
 }

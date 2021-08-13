@@ -1,0 +1,12 @@
+.product-card-container {
+    margin-top: 20pt;
+}
+
+.product-card-div {
+    margin-top: 20pt;
+}
+
+.product-card {
+    max-width: 300px;
+    align-items: center;
+}

@@ -1,4 +1,6 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-add-product',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddProductComponent implements OnInit {
   
-
+  onFileChanged(event:any) {
+    const file = event.target.files[0]
+  }
+ 
   constructor() { }
 
   ngOnInit(): void {

@@ -1,1 +1,134 @@
-<p>add-product works!</p>
+<div class="container center_div form-container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <form class="addproduct-form" #addProductForm="ngForm">
+                <mat-card>
+                    <mat-card-title>Add Product</mat-card-title>
+                    <mat-card-content>
+                        <!-- title -->
+                        <mat-form-field appearance="fill" class="full-width">
+                            <mat-label>Title</mat-label>
+                            <input matInput name="title" #title="ngModel" required ngModel>
+                            <mat-error *ngIf="title.errors?.required && title.touched">
+                                Product title is required
+                            </mat-error>
+                        </mat-form-field>
+                        <!-- product id -->
+                        <mat-form-field appearance="fill" class="full-width">
+                            <mat-label>Registered Product Id</mat-label>
+                            <input matInput name="regprodid" #regprodid="ngModel" required ngModel>
+                            <mat-error *ngIf="regprodid.errors?.required && regprodid.touched">
+                                Registered product id is required
+                            </mat-error>
+                        </mat-form-field>
+                        <!-- description -->
+                        <mat-form-field class="full-width" appearance="fill">
+                            <mat-label>Description</mat-label>
+                            <textarea matInput name="description" #description="ngModel" required ngModel></textarea>
+                            <mat-error *ngIf="description.errors?.required && description.touched">
+                                Please enter a description about the product.
+                            </mat-error>
+                        </mat-form-field>
+                        <!-- product image -->
+                        <label>Upload product pictures*</label>
+                        <input type="file" #prodimg="ngModel" name="prodimg" class="form-control" (change)="onFileChanged($event)" accept="image/*" required ngModel>
+
+                        <div *ngIf="prodimg.errors?.required && prodimg.touched" class="prodimgFont">
+                            Please upload a picture.
+                        </div>
+                        <!-- price -->
+                        <mat-form-field appearance="fill" class="full-width">
+                            <mat-label>Price</mat-label>
+                            <input type="number" matInput name="price" #price="ngModel" required ngModel>
+                            <mat-error *ngIf="price.errors?.required && price.touched">
+                                Please enter the price
+                            </mat-error>
+                        </mat-form-field>
+                        <!-- quantity -->
+                        <mat-form-field appearance="fill" class="full-width">
+                            <mat-label>Quantity</mat-label>
+                            <input type="number" matInput name="quantity" #quantity="ngModel" required ngModel>
+                            <mat-error *ngIf="quantity.errors?.required && quantity.touched">
+                                Please enter the quantity
+                            </mat-error>
+                        </mat-form-field>
+                        <!-- Weight and weight unit -->
+                        <mat-grid-list cols="2" rowHeight="100px" gutterSize="30px" class="full-width">
+                            <mat-grid-tile>
+                                <mat-form-field appearance="fill" class="full-width">
+                                    <mat-label>Weight</mat-label>
+                                    <input type="number" matInput name="weight" #weight="ngModel" required ngModel>
+                                    <mat-error *ngIf="weight.errors?.required && weight.touched">
+                                        Please enter the weight
+                                    </mat-error>
+                                </mat-form-field>
+                            </mat-grid-tile>
+                            <mat-grid-tile>
+                                <mat-form-field appearance="fill" class="full-width">
+                                    <mat-label>Unit</mat-label>
+                                    <mat-select name="unit" #unit="ngModel" required ngModel>
+                                        <mat-option value="one">kg</mat-option>
+                                        <mat-option value="two">g</mat-option>
+                                        <mat-option value="three">lb</mat-option>
+                                        <mat-option value="four">oz</mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="unit.errors?.required && unit.touched">
+                                        Please select the weight unit
+                                    </mat-error>
+                                </mat-form-field>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                        <!-- category -->
+                        <mat-form-field appearance="fill" class="full-width">
+                            <mat-label>Category</mat-label>
+                            <mat-select name="category" #category="ngModel" required ngModel>
+                                <mat-option>None</mat-option>
+                                <mat-option value="gadgets">Gadgets</mat-option>
+                                <mat-option value="cloths">Cloths</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="category.errors?.required && category.touched">
+                                Please select the product category
+                            </mat-error>
+                        </mat-form-field>
+                        <!-- subcategory need to add here -->
+                        <!-- brand and status -->
+                        <mat-grid-list cols="2" rowHeight="100px" gutterSize="30px" class="full-width">
+                            <mat-grid-tile>
+                                <mat-form-field appearance="fill" class="full-width">
+                                    <mat-label>Brand</mat-label>
+                                    <input matInput name="brand" #brand="ngModel" required ngModel>
+                                    <mat-error *ngIf="brand.errors?.required && brand.touched">
+                                        Please enter the product brand
+                                    </mat-error>
+                                </mat-form-field>
+                            </mat-grid-tile>
+                            <mat-grid-tile>
+                                <mat-form-field appearance="fill" class="full-width">
+                                    <mat-label>Status</mat-label>
+                                    <mat-select name="status" #status="ngModel" required ngModel>
+                                        <mat-option value="active">Active</mat-option>
+                                        <mat-option value="draft">Draft</mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="status.errors?.required && status.touched">
+                                        Please select the status
+                                    </mat-error>
+                                </mat-form-field>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-raised-button color="primary">Add product</button>
+                    </mat-card-actions>
+                </mat-card>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+
+    </div>
+
+
+
+
+
+</div>

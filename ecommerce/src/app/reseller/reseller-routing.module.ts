@@ -9,8 +9,7 @@ const routes: Routes=[
     children: [ 
         {path:'addproduct', component:AddProductComponent},
         {path:'products', component:ViewProductsComponent},
-        { path: '', redirectTo: 'products', pathMatch: 'full' },
-        
+        { path: '', redirectTo: 'products', pathMatch: 'full' },   
     ]
 },   
 ];

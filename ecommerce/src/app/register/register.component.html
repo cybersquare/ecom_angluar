@@ -2,22 +2,23 @@
     <!-- (scroll)="onScroll($event)" -->
     <mat-tab-group>
         <!-- Place card inside tab and form -->
-        <mat-tab label="Cusomer"> <!-- Customer registration tab -->
-            
-                <!-- Customer registration card starts here -->
+        <mat-tab label="Customer">
+            <!-- Customer registration tab -->
+
+            <!-- Customer registration card starts here -->
             <form class="registration-form" #custRegForm="ngForm" (ngSubmit)=registerCustomer(custRegForm)>
-            <mat-card class="register-card" fxLayout="column" fxLayoutAlign="center center" *ngIf="regScreen; else elseBlockOtp">
-                
-                <mat-card-header class="full-width">
-                    <mat-card-title>Customer Sign Up</mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="full-width">
-                    
+                <mat-card class="register-card" fxLayout="column" fxLayoutAlign="center center" *ngIf="regScreen; else elseBlockOtp">
+
+                    <mat-card-header class="full-width">
+                        <mat-card-title>Customer Sign Up</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="full-width">
+
                         <table class="full-width" cellspacing="0">
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
-                                        <input matInput placeholder="First name"  name="fname" #fname="ngModel"  minlength="5" required ngModel>
+                                        <input matInput placeholder="First name" name="fname" #fname="ngModel" minlength="5" required ngModel>
                                     </mat-form-field>
                                     <mat-error *ngIf="custRegForm.controls['fname']?.errors?.required && fname.touched">
                                         First name is required
@@ -25,13 +26,13 @@
                                     <mat-error *ngIf="custRegForm.controls['fname']?.errors?.minlength && fname.touched">
                                         Minimum length is 5 characters
                                     </mat-error>
-                                    
+
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
-                                        <input matInput placeholder="Last name"  name="lname"  #lname="ngModel" required ngModel>
+                                        <input matInput placeholder="Last name" name="lname" #lname="ngModel" required ngModel>
                                     </mat-form-field>
                                     <mat-error *ngIf="custRegForm.controls['lname']?.errors?.required && lname.touched">
                                         Last name is required
@@ -43,22 +44,22 @@
                             </tr>
                             <tr>
                                 <td>
-        
-                                    <mat-radio-group aria-label="Select an option"  name="gender" #gender="ngModel" required ngModel>
-                                        <mat-radio-button value="male"  >Male</mat-radio-button>
-                                        <mat-radio-button value="female" >Female</mat-radio-button>
+
+                                    <mat-radio-group aria-label="Select an option" name="gender" #gender="ngModel" required ngModel>
+                                        <mat-radio-button value="male">Male</mat-radio-button>
+                                        <mat-radio-button value="female">Female</mat-radio-button>
                                     </mat-radio-group>
                                     <mat-error *ngIf="custRegForm.controls['gender']?.errors?.required && gender.touched">
                                         Please select gender
                                     </mat-error>
                                 </td>
                             </tr>
-        
+
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
                                         <mat-label>Date of birth</mat-label>
-                                        <input matInput [matDatepicker]="picker"  name="dob" #dob="ngModel" required ngModel>
+                                        <input matInput [matDatepicker]="picker" name="dob" #dob="ngModel" required ngModel>
                                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                         <mat-datepicker #picker></mat-datepicker>
                                     </mat-form-field>
@@ -71,16 +72,16 @@
                                 <td>
                                     <mat-form-field class="full-width">
                                         <mat-label>Address</mat-label>
-                                        <textarea matInput placeholder="Address"  name="address" #address="ngModel" ngModel></textarea>
+                                        <textarea matInput placeholder="Address" name="address" #address="ngModel" ngModel></textarea>
                                     </mat-form-field>
-                                    
+
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
                                         <mat-label>Country</mat-label>
-                                        <select matNativeControl  name="country" #country="ngModel" ngModel>
+                                        <select matNativeControl name="country" #country="ngModel" ngModel>
                                             <option value="India">India</option>
                                             <option value="USA">USA</option>
                                             <option value="UK">UK</option>
@@ -89,11 +90,11 @@
                                     </mat-form-field>
                                 </td>
                             </tr>
-        
+
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
-                                        <input matInput placeholder="Mobile" name="phone" name="phone" #phone="ngModel" required ngModel >
+                                        <input matInput placeholder="Mobile" name="phone" name="phone" #phone="ngModel" required ngModel>
                                     </mat-form-field>
 
                                     <mat-error *ngIf="custRegForm.controls['lname']?.errors?.required && lname.touched">
@@ -104,8 +105,8 @@
                                     </mat-error>
                                 </td>
                             </tr>
-        
-        
+
+
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
@@ -119,8 +120,8 @@
                                     </mat-error>
                                 </td>
                             </tr>
-        
-        
+
+
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
@@ -130,12 +131,11 @@
                                         This is a required field
                                     </mat-error>
                                     <mat-error *ngIf="custRegForm.controls['password']?.errors?.minlength && password.touched">
-                                        Minimum length is 5 characters
-                                        {{password.value}}
+                                        Minimum length is 5 characters {{password.value}}
                                     </mat-error>
                                 </td>
                             </tr>
-        
+
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
@@ -147,38 +147,39 @@
                                     <mat-error *ngIf="(cpassword.value!=password.value) && cpassword.touched">
                                         Password and confirm password does not match
                                     </mat-error>
-                                    
+
                                 </td>
                             </tr>
-        
+
                         </table>
-                 
-                    <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
-                </mat-card-content>
-                <mat-card-actions>
-                    <mat-spinner *ngIf="cRegSpinner"></mat-spinner>
-                    <button type="ngSubmit" [disabled]="!custRegForm.valid" mat-raised-button color="primary">Register</button>
-                    <button type="reset" mat-raised-button color="accent">Reset</button>
-                </mat-card-actions>
-            
-            </mat-card>
-        </form> 
-        
-<!-- Customer registration ends here -->
-        <ng-template #elseBlockOtp> <!-- OTP verification process-->
-            
-            <mat-card class="register-card" fxLayout="column" fxLayoutAlign="center center" >
-                <!-- -->
-                <mat-card-header class="full-width">
-                    <mat-card-title>Verify your OTP</mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="full-width">
-                   
+
+                        <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <mat-spinner *ngIf="cRegSpinner"></mat-spinner>
+                        <button type="ngSubmit" [disabled]="!custRegForm.valid" mat-raised-button color="primary">Register</button>
+                        <button type="reset" mat-raised-button color="accent">Reset</button>
+                    </mat-card-actions>
+
+                </mat-card>
+            </form>
+
+            <!-- Customer registration ends here -->
+            <ng-template #elseBlockOtp>
+                <!-- OTP verification process-->
+
+                <mat-card class="register-card" fxLayout="column" fxLayoutAlign="center center">
+                    <!-- -->
+                    <mat-card-header class="full-width">
+                        <mat-card-title>Verify your OTP</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="full-width">
+
                         <table class="full-width" cellspacing="0">
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
-                                        <input matInput placeholder="OTP"  name="cust_otp" #cust_otp="ngModel"  minlength="4" required ngModel>
+                                        <input matInput placeholder="OTP" name="cust_otp" #cust_otp="ngModel" minlength="4" required ngModel>
                                     </mat-form-field>
                                     <mat-error *ngIf="custRegForm.controls['cust_otp']?.errors?.required && cust_otp.touched">
                                         Please enter OTP
@@ -189,30 +190,32 @@
                                 </td>
                             </tr>
                         </table>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button  type="button" mat-raised-button color="primary" (click)="customerOtpVerificiation(cust_otp)">Verify</button>
-                    <button type="reset" mat-raised-button color="accent">cancel</button>
-                </mat-card-actions>
-            </mat-card>
-        
-        </ng-template>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button type="button" mat-raised-button color="primary" (click)="customerOtpVerificiation()">Verify</button>
+                        <button type="reset" mat-raised-button color="accent">cancel</button>
+                    </mat-card-actions>
+                </mat-card>
 
-        </mat-tab> <!-- Customer registration tab ends here -->
-        <mat-tab label="Reseller"> <!-- Reseller registration tab starts here -->
+            </ng-template>
+
+        </mat-tab>
+        <!-- Customer registration tab ends here -->
+        <mat-tab label="Reseller">
+            <!-- Reseller registration tab starts here -->
             <form class="registration-form" #resellerRegForm="ngForm" (ngSubmit)=registerReseller(resellerRegForm)>
                 <!-- Reseller registration card starts here -->
-            <mat-card class="register-card" fxLayout="column" fxLayoutAlign="center center" *ngIf="resllerRegScreen; else elseBlockOtp">
-                <mat-card-header class="full-width">
-                    <mat-card-title>Ressler Registration</mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="full-width">
-                   
+                <mat-card class="register-card" fxLayout="column" fxLayoutAlign="center center" *ngIf="resllerRegScreen; else elseBlockOtp">
+                    <mat-card-header class="full-width">
+                        <mat-card-title>Ressler Registration</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="full-width">
+
                         <table class="full-width" cellspacing="0">
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
-                                        <input matInput placeholder="Company name"  name="companyName" #companyName="ngModel"  minlength="5" required ngModel>
+                                        <input matInput placeholder="Company name" name="companyName" #companyName="ngModel" minlength="5" required ngModel>
                                     </mat-form-field>
                                     <mat-error *ngIf="resellerRegForm.controls['companyName']?.errors?.required && companyName.touched">
                                         Company name is required
@@ -220,13 +223,13 @@
                                     <mat-error *ngIf="resellerRegForm.controls['companyName']?.errors?.minlength && companyName.touched">
                                         Minimum length is 5 characters
                                     </mat-error>
-                                    
+
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
-                                        <input matInput placeholder="Company ID"  name="companyId"  #companyId="ngModel" required ngModel>
+                                        <input matInput placeholder="Company ID" name="companyId" #companyId="ngModel" required ngModel>
                                     </mat-form-field>
                                     <mat-error *ngIf="resellerRegForm.controls['companyId']?.errors?.required && companyId.touched">
                                         Last name is required
@@ -236,11 +239,11 @@
                                     </mat-error>
                                 </td>
                             </tr>
-                            
+
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
-                                        <input matInput placeholder="Bank account name"  name="accountName"  #accountName="ngModel" required ngModel>
+                                        <input matInput placeholder="Bank account name" name="accountName" #accountName="ngModel" required ngModel>
                                     </mat-form-field>
                                     <mat-error *ngIf="resellerRegForm.controls['accountName']?.errors?.required && accountName.touched">
                                         Name as in bank account is required
@@ -254,7 +257,7 @@
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
-                                        <input matInput placeholder="Account number"  name="accountNumber"  #accountNumber="ngModel" required ngModel>
+                                        <input matInput placeholder="Account number" name="accountNumber" #accountNumber="ngModel" required ngModel>
                                     </mat-form-field>
                                     <mat-error *ngIf="resellerRegForm.controls['accountNumber']?.errors?.required && accountNumber.touched">
                                         Account number required
@@ -268,7 +271,7 @@
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
-                                        <input matInput placeholder="IFSC"  name="ifsc"  #ifsc="ngModel" required ngModel>
+                                        <input matInput placeholder="IFSC" name="ifsc" #ifsc="ngModel" required ngModel>
                                     </mat-form-field>
                                     <mat-error *ngIf="resellerRegForm.controls['ifsc']?.errors?.required && ifsc.touched">
                                         Last name is required
@@ -278,22 +281,22 @@
                                     </mat-error>
                                 </td>
                             </tr>
-        
-                            
+
+
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
                                         <mat-label>Address</mat-label>
-                                        <textarea matInput placeholder="Address"  name="resellerAddress" #resellerAddress="ngModel" ngModel></textarea>
+                                        <textarea matInput placeholder="Address" name="resellerAddress" #resellerAddress="ngModel" ngModel></textarea>
                                     </mat-form-field>
-                                    
+
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
                                         <mat-label>Country</mat-label>
-                                        <select matNativeControl  name="resellerCountry" #resellerCountry="ngModel" ngModel>
+                                        <select matNativeControl name="resellerCountry" #resellerCountry="ngModel" ngModel>
                                             <option value="India">India</option>
                                             <option value="USA">USA</option>
                                             <option value="UK">UK</option>
@@ -302,11 +305,11 @@
                                     </mat-form-field>
                                 </td>
                             </tr>
-        
+
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
-                                        <input matInput placeholder="Mobile" name="resellerMobile"  #resellerMobile="ngModel" required ngModel >
+                                        <input matInput placeholder="Mobile" name="resellerMobile" #resellerMobile="ngModel" required ngModel>
                                     </mat-form-field>
 
                                     <mat-error *ngIf="resellerRegForm.controls['resellerMobile']?.errors?.required && resellerMobile.touched">
@@ -317,8 +320,8 @@
                                     </mat-error>
                                 </td>
                             </tr>
-        
-        
+
+
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
@@ -332,8 +335,8 @@
                                     </mat-error>
                                 </td>
                             </tr>
-        
-        
+
+
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
@@ -344,11 +347,11 @@
                                     </mat-error>
                                     <mat-error *ngIf="resellerRegForm.controls['resellerPassword']?.errors?.minlength && resellerPassword.touched">
                                         Minimum length is 5 characters
-                                       
+
                                     </mat-error>
                                 </td>
                             </tr>
-        
+
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
@@ -360,37 +363,38 @@
                                     <mat-error *ngIf="(cRpassword.value!=resellerPassword.value) && cRpassword.touched">
                                         Password and confirm password does not match
                                     </mat-error>
-                                    
+
                                 </td>
                             </tr>
-        
+
                         </table>
-                    
-                    <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
-                </mat-card-content>
-                <mat-card-actions>
-                    <mat-spinner *ngIf="rRegSpinner"></mat-spinner>
-                    <button type="ngSubmit" [disabled]="!resellerRegForm.valid" mat-raised-button color="primary">Register</button>
-                    <button type="reset" mat-raised-button color="accent">Reset</button>
-                    
-                </mat-card-actions>
-            </mat-card>
-        </form> 
-<!-- Reseller registration ends here -->
-        <ng-template #elseBlockOtp> <!-- OTP verification process-->
-            
-            <mat-card class="register-card" fxLayout="column" fxLayoutAlign="center center" >
-                <!-- -->
-                <mat-card-header class="full-width">
-                    <mat-card-title>Verify your OTP</mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="full-width">
-                   
+
+                        <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <mat-spinner *ngIf="rRegSpinner"></mat-spinner>
+                        <button type="ngSubmit" [disabled]="!resellerRegForm.valid" mat-raised-button color="primary">Register</button>
+                        <button type="reset" mat-raised-button color="accent">Reset</button>
+
+                    </mat-card-actions>
+                </mat-card>
+            </form>
+            <!-- Reseller registration ends here -->
+            <ng-template #elseBlockOtp>
+                <!-- OTP verification process-->
+
+                <mat-card class="register-card" fxLayout="column" fxLayoutAlign="center center">
+                    <!-- -->
+                    <mat-card-header class="full-width">
+                        <mat-card-title>Verify your OTP</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="full-width">
+
                         <table class="full-width" cellspacing="0">
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
-                                        <input matInput placeholder="OTP"  name="resell_otp" #resell_otp="ngModel"  minlength="4" required ngModel>
+                                        <input matInput placeholder="OTP" name="resell_otp" #resell_otp="ngModel" minlength="5" required ngModel>
                                     </mat-form-field>
                                     <mat-error *ngIf="resellerRegForm.controls['resell_otp']?.errors?.required && resell_otp.touched">
                                         OTP is required
@@ -401,22 +405,22 @@
                                 </td>
                             </tr>
                         </table>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button  type="button" mat-raised-button color="primary" (click)="resellerOtpVerificiation(resell_otp)">Verify</button>
-                    <button type="reset" mat-raised-button color="accent">cancel</button>
-                </mat-card-actions>
-            </mat-card>
-        
-        </ng-template>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-raised-button color="primary">Verify</button>
+                        <button type="reset" mat-raised-button color="accent">cancel</button>
+                    </mat-card-actions>
+                </mat-card>
+
+            </ng-template>
 
 
 
 
         </mat-tab>
-       
+
     </mat-tab-group>
-    
+
 
 
 </article>

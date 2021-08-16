@@ -191,7 +191,7 @@
                         </table>
                 </mat-card-content>
                 <mat-card-actions>
-                    <button  type="button" mat-raised-button color="primary" (click)="customerOtpVerificiation()">Verify</button>
+                    <button  type="button" mat-raised-button color="primary" (click)="customerOtpVerificiation(cust_otp)">Verify</button>
                     <button type="reset" mat-raised-button color="accent">cancel</button>
                 </mat-card-actions>
             </mat-card>
@@ -390,20 +390,20 @@
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
-                                        <input matInput placeholder="OTP"  name="resell_otp" #resell_otp="ngModel"  minlength="5" required ngModel>
+                                        <input matInput placeholder="OTP"  name="resell_otp" #resell_otp="ngModel"  minlength="4" required ngModel>
                                     </mat-form-field>
                                     <mat-error *ngIf="resellerRegForm.controls['resell_otp']?.errors?.required && resell_otp.touched">
-                                        First name is required
+                                        OTP is required
                                     </mat-error>
                                     <mat-error *ngIf="resellerRegForm.controls['resell_otp']?.errors?.minlength && resell_otp.touched">
-                                        Minimum length is 5 characters
+                                        Minimum length is 4 charcters
                                     </mat-error>
                                 </td>
                             </tr>
                         </table>
                 </mat-card-content>
                 <mat-card-actions>
-                    <button  mat-raised-button color="primary">Verify</button>
+                    <button  type="button" mat-raised-button color="primary" (click)="resellerOtpVerificiation(resell_otp)">Verify</button>
                     <button type="reset" mat-raised-button color="accent">cancel</button>
                 </mat-card-actions>
             </mat-card>

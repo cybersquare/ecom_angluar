@@ -12,7 +12,7 @@ export class CommonService {
   private customerSignupUrl = 'http://cs-ecom.herokuapp.com/common/Ang_Signup';
   private resellerSignupUrl = 'http://cs-ecom.herokuapp.com/common/Ang_Signup';
   private loginUrl = "";
-  private custOtpVerify = "https://cs-ecom.herokuapp.com/common/otpVerify"
+  private verifyOtpUrl = "https://cs-ecom.herokuapp.com/common/otpVerify"
   constructor(private httpclient:HttpClient) { }
 
   registerCustomer(reg:RegisterCustomer){
@@ -25,6 +25,10 @@ export class CommonService {
     console.log("in service");
     console.log(reg);
     return this.httpclient.post<any>(this.resellerSignupUrl, reg);
+  }
+
+  verifyOtp(userid:string){
+    return this.httpclient.post<any>(this.verifyOtpUrl, {"userid":userid});
   }
 
 

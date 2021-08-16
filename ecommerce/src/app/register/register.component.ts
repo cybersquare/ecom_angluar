@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommonService } from '../services/common.service';
 import { RegisterCustomer } from './register-cust.model'
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { RegisterReseller } from './register-reselller.model'
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -17,10 +17,11 @@ export class RegisterComponent implements OnInit {
   @Input() deviceXs: boolean = false;
   regScreen=true;
   resllerRegScreen=true;
-  cOtp = 0;
-  rOtp = 0;
+  cOtp = "";
+  rOtp = "";
   rRegSpinner = false;
   cRegSpinner = false;
+  userid_for_verification=""
   
   constructor(private regServ:CommonService, 
     private datePipe: DatePipe, 
@@ -50,11 +51,13 @@ export class RegisterComponent implements OnInit {
     this.cReg.country = cust.country;
     this.cReg.dateofbirth = this.datePipe.transform(cust.dob,"yyyy-MM-dd");
     this.regServ.registerCustomer(this.cReg).subscribe(res =>{
+
       console.log(res);
       
       if(res.status == "Registreration successfull"){
         this.regScreen = false;
-        this.cOtp = res.otp
+        this.cOtp = res.otp;
+        this.userid_for_verification = res.id;
       } 
       else{
         this._snackBar.open(res.status, 'Close', {
@@ -86,31 +89,53 @@ export class RegisterComponent implements OnInit {
 
     this.regServ.registerReseller(this.rReg).subscribe(res=>{
       console.log(res);
+      this.userid_for_verification = res.userid;
     });
 
   }
 
   // Customer OTP verification
-  customerOtpVerificiation(){
-    localStorage.setItem("username", this.cReg.email);
-    localStorage.setItem("userType", "customer")
-    this._snackBar.open("Registarion complete", 'Close', {
-      duration: 5000
-    });
-    this._router.navigate(['/login']);
-  }
+  customerOtpVerificiation(customer_otp:any){
 
-    // Reseller OTP verification
-  resellerOtpVerificiation(){
-      localStorage.setItem("username", this.rReg.email);
-      localStorage.setItem("userType", "reseller")
-      this._snackBar.open("Reseller registarion complete", 'Close', {
-        duration: 3000
+    console.log(customer_otp.value);
+    console.log(this.userid_for_verification);
+    if(this.cOtp == customer_otp.value){
+      this.regServ.verifyOtp(this.userid_for_verification).subscribe(res=>{
+        console.log(res);
+        if(res.status=="OTP verified successfully"){
+          localStorage.setItem("username", this.cReg.email);
+          localStorage.setItem("userType", "customer");
+          this._snackBar.open("Registarion complete", 'Close', {
+          duration: 3000});
+          // Navigate to login page after successful verification of OTP
+          this._router.navigate(['/login']);
+        }
       });
-
+    }
+    else{
+      console.log("Invlaid OTP");
+    }
   }
-
-
-
-
+    
+    // Reseller OTP verification
+  resellerOtpVerificiation(reseller_otp:any){
+      console.log(reseller_otp.value);
+      if(this.rOtp == reseller_otp.value){
+        // Update OTP verification on server
+        this.regServ.verifyOtp(this.userid_for_verification).subscribe(res=>{
+          console.log(res);
+          if(res.status=="OTP verified successfully"){
+            localStorage.setItem("username", this.rReg.email);
+            localStorage.setItem("userType", "reseller")
+            this._snackBar.open("Reseller registarion complete", 'Close', {
+            duration: 3000});
+          // Navigate to login page after successful verification of OTP
+          this._router.navigate(['/login']);
+        }
+        });
+      }
+      else{
+        console.log("Invlaid OTP")
+      }
+  }
 }

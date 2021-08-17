@@ -16,7 +16,7 @@ import { ResellerModule } from './reseller/reseller.module';
 import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import {DatePipe} from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { AuthGuard } from './auth.guard';
 import { MaterialDesignModule } from './material-design/material-design.module';
 import { FooterComponent } from './footer/footer.component';

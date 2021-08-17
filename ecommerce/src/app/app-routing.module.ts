@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', component: MainToolbarComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent , canActivate:[AuthGuard]},
-  // { path: 'login', component: LoginComponent , canActivate:[AuthGuard]}, Sample - How to apply auth guard
+  // { path: 'login', component: LoginComponent , canActivate:[AuthGuard]}, Sample - How to apply auth guard 
   { path: 'adminLogin', component: AdminLoginComponent}
 ];
 

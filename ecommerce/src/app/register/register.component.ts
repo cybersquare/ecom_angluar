@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommonService } from '../services/common.service';
 import { RegisterCustomer } from './register-cust.model'
-import { FormControl, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { RegisterReseller } from './register-reselller.model'
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
 
       console.log(res);
       
-      if(res.status == "Registreration successfull"){
+      if(res.status == "Registeration successfull"){
         this.regScreen = false;
         this.cOtp = res.otp;
         this.userid_for_verification = res.id;
@@ -72,9 +72,9 @@ export class RegisterComponent implements OnInit {
   }
 // Reseller registation
   registerReseller(resellerRegForm:NgForm){
-    this.resllerRegScreen = false;
+    
     let resell=resellerRegForm.value;
-
+    this.rRegSpinner = true;
     this.rReg.resellercompanyname = resell.companyName;
     this.rReg.resellercompanyid = resell.companyId;
     this.rReg.resellerbankaccountname = resell.accountName;
@@ -89,9 +89,21 @@ export class RegisterComponent implements OnInit {
 
     this.regServ.registerReseller(this.rReg).subscribe(res=>{
       console.log(res);
-      this.userid_for_verification = res.userid;
-    });
 
+      if(res.status == "Registeration successfull"){
+        this.resllerRegScreen = false;
+        this.rOtp = res.otp;
+        this.userid_for_verification = res.id;
+      } 
+      else{
+        this._snackBar.open(res.status, 'Close', {
+          duration: 3000
+        });
+      }
+      this.rRegSpinner = false;
+
+    });
+    this.rRegSpinner = false;
   }
 
   // Customer OTP verification
@@ -103,8 +115,8 @@ export class RegisterComponent implements OnInit {
       this.regServ.verifyOtp(this.userid_for_verification).subscribe(res=>{
         console.log(res);
         if(res.status=="OTP verified successfully"){
-          localStorage.setItem("username", this.cReg.email);
-          localStorage.setItem("userType", "customer");
+          // localStorage.setItem("username", this.cReg.email);
+          // localStorage.setItem("userType", "customer");
           this._snackBar.open("Registarion complete", 'Close', {
           duration: 3000});
           // Navigate to login page after successful verification of OTP
@@ -125,8 +137,8 @@ export class RegisterComponent implements OnInit {
         this.regServ.verifyOtp(this.userid_for_verification).subscribe(res=>{
           console.log(res);
           if(res.status=="OTP verified successfully"){
-            localStorage.setItem("username", this.rReg.email);
-            localStorage.setItem("userType", "reseller")
+            // localStorage.setItem("username", this.rReg.email);
+            // localStorage.setItem("userType", "reseller")
             this._snackBar.open("Reseller registarion complete", 'Close', {
             duration: 3000});
           // Navigate to login page after successful verification of OTP

@@ -192,7 +192,7 @@
                         </table>
                     </mat-card-content>
                     <mat-card-actions>
-                        <button type="button" mat-raised-button color="primary" (click)="customerOtpVerificiation()">Verify</button>
+                        <button type="button" mat-raised-button color="primary" (click)="customerOtpVerificiation(cust_otp)">Verify</button>
                         <button type="reset" mat-raised-button color="accent">cancel</button>
                     </mat-card-actions>
                 </mat-card>
@@ -205,7 +205,7 @@
             <!-- Reseller registration tab starts here -->
             <form class="registration-form" #resellerRegForm="ngForm" (ngSubmit)=registerReseller(resellerRegForm)>
                 <!-- Reseller registration card starts here -->
-                <mat-card class="register-card" fxLayout="column" fxLayoutAlign="center center" *ngIf="resllerRegScreen; else elseBlockOtp">
+                <mat-card class="register-card" fxLayout="column" fxLayoutAlign="center center" *ngIf="resllerRegScreen; else elseBlockOtpReseller">
                     <mat-card-header class="full-width">
                         <mat-card-title>Ressler Registration</mat-card-title>
                     </mat-card-header>
@@ -380,7 +380,7 @@
                 </mat-card>
             </form>
             <!-- Reseller registration ends here -->
-            <ng-template #elseBlockOtp>
+            <ng-template #elseBlockOtpReseller>
                 <!-- OTP verification process-->
 
                 <mat-card class="register-card" fxLayout="column" fxLayoutAlign="center center">
@@ -394,7 +394,7 @@
                             <tr>
                                 <td>
                                     <mat-form-field class="full-width">
-                                        <input matInput placeholder="OTP" name="resell_otp" #resell_otp="ngModel" minlength="5" required ngModel>
+                                        <input matInput placeholder="OTP" name="resell_otp" #resell_otp="ngModel" minlength="4" required ngModel>
                                     </mat-form-field>
                                     <mat-error *ngIf="resellerRegForm.controls['resell_otp']?.errors?.required && resell_otp.touched">
                                         OTP is required
@@ -407,11 +407,10 @@
                         </table>
                     </mat-card-content>
                     <mat-card-actions>
-                        <button mat-raised-button color="primary">Verify</button>
+                        <button type="button" mat-raised-button color="primary" (click)="resellerOtpVerificiation(resell_otp)">Verify</button>
                         <button type="reset" mat-raised-button color="accent">cancel</button>
                     </mat-card-actions>
                 </mat-card>
-
             </ng-template>
 
 

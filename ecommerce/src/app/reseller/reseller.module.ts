@@ -12,9 +12,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http'
     DashboardComponent,
     AddProductComponent,
     ViewProductsComponent,
-    
-    
-   
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,28 @@
+<mat-card class="register-card" fxLayout="column" fxLayoutAlign="center center">
+    <!-- -->
+    <mat-card-header class="full-width">
+        <mat-card-title>Verify your OTP</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="full-width">
+
+        <table class="full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="OTP" name="cust_otp" #cust_otp="ngModel" minlength="4" required ngModel value={{otp}}>
+                    </mat-form-field>
+                    <!-- <mat-error *ngIf="custRegForm.controls['cust_otp']?.errors?.required && cust_otp.touched">
+                        Please enter OTP
+                    </mat-error>
+                    <mat-error *ngIf="custRegForm.controls['cust_otp']?.errors?.minlength && cust_otp.touched">
+                        Minimum length is 4 characters
+                    </mat-error> -->
+                </td>
+            </tr>
+        </table>
+    </mat-card-content>
+    <mat-card-actions>
+        <button type="button" mat-raised-button color="primary" (click)="customerOtpVerificiation(cust_otp)">Verify</button>
+        <button type="button" mat-raised-button color="accent" (click)="onClose()">Close</button>
+    </mat-card-actions>
+</mat-card>

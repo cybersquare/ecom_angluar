@@ -20,6 +20,7 @@ import {DatePipe} from '@angular/common';
 import { AuthGuard } from './auth.guard';
 import { MaterialDesignModule } from './material-design/material-design.module';
 import { FooterComponent } from './footer/footer.component';
+import { OtpVerifyComponent } from './otp-verify/otp-verify.component';
 
 
 
@@ -31,7 +32,8 @@ import { FooterComponent } from './footer/footer.component';
     ContentComponent,
     LoginComponent,
     RegisterComponent,
-    FooterComponent
+    FooterComponent,
+    OtpVerifyComponent,
   ],
   imports: [
     HttpClientModule ,
@@ -49,6 +51,9 @@ import { FooterComponent } from './footer/footer.component';
     DatePipe,
     AuthGuard,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[
+    OtpVerifyComponent,
+  ],
 })
 export class AppModule { }

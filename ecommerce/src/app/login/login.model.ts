@@ -1,8 +1,8 @@
 // This class is a model for the login functionlity
 export class Login{
 //properties  
-    private _username : string = "";
-    private _password : string = "";
+    private userName : string = "";
+    private userPassword : string = "";
 //constructor  
     // constructor(username:string, password:string){
     //     this._username = username;
@@ -10,19 +10,19 @@ export class Login{
     // }
 //getters and setters
     public get username(){
-        return this._username;
+        return this.userName;
     }
     
     public set username(username:string){
-        this._username = username
+        this.userName = username
     }
 
     public get password(){
-        return this._password;
+        return this.userPassword;
     }
     
     public set password(password:string){
-        this._password = password;
+        this.userPassword = password;
     }
 }
 

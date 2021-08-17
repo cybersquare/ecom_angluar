@@ -1,38 +1,50 @@
-<article>
-    [class.content]="!deviceXs" [class.content-mob]="deviceXs"
-    <!-- (scroll)="onScroll($event)" -->
-
-    <p>login works!</p>
-
+<article [class.content]="!deviceXs" [class.content-mob]="deviceXs">
+    <form class="login-form" #loginForm="ngForm" (ngSubmit)=userLogin(loginForm) >
     <mat-card class="login-card" fxLayout="column" fxLayoutAlign="center center">
         <mat-card-header class="full-width">
             <mat-card-title mat-primary>Login</mat-card-title>
         </mat-card-header>
         <mat-card-content class="full-width">
-            <form class="login-form">
+            <!-- <form class="login-form" #loginForm="ngForm" (ngSubmit)=userLogin(loginForm) ></form> -->
                 <table class="full-width" cellspacing="0">
                     <tr>
                         <td>
                             <mat-form-field class="full-width">
-                                <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+                                <input matInput placeholder="Username" name="username" #username="ngModel" minlength="5" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required ngModel>
                             </mat-form-field>
+                            <mat-error *ngIf="loginForm.controls['username']?.errors?.required && username.touched">
+                                user name is required
+                            </mat-error>
+                            <mat-error *ngIf="loginForm.controls['username']?.errors?.minlength && username.touched">
+                                Minimum length is 5 characters
+                            </mat-error>
+                            <mat-error *ngIf="loginForm.controls['username']?.errors?.pattern && username.touched">
+                                Invalid email format
+                            </mat-error>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <mat-form-field class="full-width">
-                                <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+                                <input matInput placeholder="Password" type="password" name="usrPassword" #usrPassword="ngModel" minlength="5" required ngModel>
                             </mat-form-field>
+                            <mat-error *ngIf="loginForm.controls['usrPassword']?.errors?.required && usrPassword.touched">
+                                Password is required
+                            </mat-error>
+                            <mat-error *ngIf="loginForm.controls['usrPassword']?.errors?.minlength && usrPassword.touched">
+                                Minimum length is 5 characters
+                            </mat-error>
                         </td>
                     </tr>
                 </table>
-            </form>
+          
             <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
         </mat-card-content>
         <mat-card-actions>
-            <button mat-raised-button (click)="userLogin()" color="primary">Login</button>
-            <button mat-raised-button color="warn">Reset</button>
+            <button mat-raised-button color="primary">Login</button>
+            <button mat-raised-button color="primary" type="button" (click)="showDialog()">Popup</button>
+            <button mat-raised-button color="warn" type="reset">Reset</button>
         </mat-card-actions>
     </mat-card>
-
+</form>
 </article>

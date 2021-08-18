@@ -21,6 +21,8 @@ import { AuthGuard } from './auth.guard';
 import { MaterialDesignModule } from './material-design/material-design.module';
 import { FooterComponent } from './footer/footer.component';
 import { OtpVerifyComponent } from './otp-verify/otp-verify.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 
@@ -34,6 +36,8 @@ import { OtpVerifyComponent } from './otp-verify/otp-verify.component';
     RegisterComponent,
     FooterComponent,
     OtpVerifyComponent,
+    ContactUsComponent,
+    AboutUsComponent
   ],
   imports: [
     HttpClientModule ,

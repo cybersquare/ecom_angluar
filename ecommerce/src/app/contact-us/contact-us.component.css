@@ -1,0 +1,26 @@
+p {
+    margin-top: 60px;
+}
+
+.matcard {
+    width: 100%;
+}
+
+.card-container {
+    background: #E8EAF6;
+    padding: 10px;
+}
+
+.center {
+    text-align: center;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+td {
+    padding-right: 8px;
+}

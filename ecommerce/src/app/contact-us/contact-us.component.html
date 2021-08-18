@@ -1,0 +1,44 @@
+<p>contact-us works!</p>
+<!-- <div fxLayout="row" fxLayoutAlign="center end">
+    
+</div> -->
+
+<div fxLayout="column" fxLayout.lt-xs="row" fxLayoutAlign="center center">
+    <div fxFlex="30"></div>
+    <div fxFlex="40">
+        <mat-card class="matcard card-container">
+            <mat-card-header class="center">
+                <mat-card-title>Contact us</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <!-- Form starts here -->
+                <form class="example-form">
+                    <mat-form-field class="matcard" appearance="fill">
+                        <mat-label>First name</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+
+                    <mat-form-field class="matcard" appearance="fill">
+                        <mat-label>Last name</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+
+                    <mat-form-field class="matcard" appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="user@email.com" email="true">
+                    </mat-form-field>
+
+                    <mat-form-field class="matcard" appearance="fill">
+                        <mat-label>Leave a comment</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                    </mat-form-field>
+                </form>
+                <!-- Form ends here -->
+            </mat-card-content>
+            <mat-card-actions class="center">
+                <button mat-raised-button color="primary">Submit</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <div fxFlex="30"></div>
+</div>

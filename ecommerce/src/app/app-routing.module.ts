@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'AboutUs', component: AboutUsComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent , canActivate:[AuthGuard]},
+  { path: 'login', component: LoginComponent },
   // { path: 'login', component: LoginComponent , canActivate:[AuthGuard]}, Sample - How to apply auth guard 
   { path: 'adminLogin', component: AdminLoginComponent}
 ];

@@ -40,9 +40,9 @@ export class CommonService {
     console.log("in service - User login");
     return this.httpclient.post<any>(this.loginUrl, login);
   }
+
   resellerViewproduct(resdata: ResellerProduct){
     return this.httpclient.post<any>(this.resellerViewProdURL, resdata);
   }
-
   
 }

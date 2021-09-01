@@ -1,42 +1,42 @@
 <p class="mat-headline">Reseller Requests</p>
 <div class="containers">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 material-table">
+    <table mat-table [dataSource]="resellerSet" class="mat-elevation-z8 material-table">
 
         <!-- Reseller Name -->
         <ng-container matColumnDef="Reseller Name">
             <th mat-header-cell *matHeaderCellDef> Reseller Name </th>
-            <td mat-cell *matCellDef="let element">{{element.position}}</td>
+            <td mat-cell *matCellDef="let element">{{element.rName}}</td>
         </ng-container>
 
         <!-- Reseller Address -->
         <ng-container matColumnDef="Address">
             <th mat-header-cell *matHeaderCellDef> Address </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.rAddress}} </td>
         </ng-container>
 
         <!-- Reseller Email -->
         <ng-container matColumnDef="Email">
             <th mat-header-cell *matHeaderCellDef> Email </th>
-            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
         </ng-container>
 
         <!-- Reseller Contact -->
         <ng-container matColumnDef="Mobile">
             <th mat-header-cell *matHeaderCellDef> Contact </th>
-            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.contact}} </td>
         </ng-container>
 
         <!-- Bank details -->
         <ng-container matColumnDef="bank">
             <th mat-header-cell *matHeaderCellDef> Bank details <br>Holder Name <br> Acc No <br> IFSC </th>
-            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.AccHolderName}} <br>{{element.AccNumber}} <br> {{element.AccIFSC}} </td>
         </ng-container>
 
         <!-- Approve/Decline resellers -->
         <ng-container matColumnDef="operations">
             <th mat-header-cell *matHeaderCellDef>Approve/Decline </th>
             <td mat-cell *matCellDef="let element">
-                <button mat-raised-button color="primary">Approve</button>&nbsp;
+                <button mat-raised-button color="primary" (click)="approveReseller(element.rId)">Approve</button>&nbsp;
                 <button mat-raised-button color="warn">Decline</button>
             </td>
         </ng-container>

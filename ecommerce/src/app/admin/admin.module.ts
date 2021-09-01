@@ -7,6 +7,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminSidenavComponent } from './admin-sidenav/admin-sidenav.component';
 import { AdminRoutingModule } from './admin-routing.module'
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -23,6 +24,7 @@ import { AdminRoutingModule } from './admin-routing.module'
     FormsModule,
     ReactiveFormsModule,
     AdminRoutingModule,
+    HttpClientModule
   ],
   exports: [
     ManageResellersComponent,

@@ -36,8 +36,8 @@
         <ng-container matColumnDef="operations">
             <th mat-header-cell *matHeaderCellDef>Approve/Decline </th>
             <td mat-cell *matCellDef="let element">
-                <button mat-raised-button color="primary" (click)="approveReseller(element.rId)">Approve</button>&nbsp;
-                <button mat-raised-button color="warn">Decline</button>
+                <button mat-raised-button color="primary" (click)="approveReseller(element.rId,'active')">Approve</button>&nbsp;
+                <button mat-raised-button color="warn" (click)="approveReseller(element.rId,'declined')">Decline</button>
             </td>
         </ng-container>
 

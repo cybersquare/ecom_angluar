@@ -23,8 +23,11 @@ export class ApproveResellersComponent implements OnInit {
       // const ELEMENT_DATA: PeriodicElement[] = 
     })
   }
-  approveReseller(id: any){
-    console.log(id)
+  approveReseller(id: any,status: any){
+    let req={"id": id, "status": status}
+    this.addeResellerService.UpdateResellerRequest(req).subscribe(res=>{
+      this.getResellerdata()
+    })
   }
 }
 

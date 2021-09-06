@@ -23,6 +23,7 @@ import { FooterComponent } from './footer/footer.component';
 import { OtpVerifyComponent } from './otp-verify/otp-verify.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { AdminGuardGuard } from './admin/admin-guard.guard';
 
 
 
@@ -54,6 +55,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
   providers: [
     DatePipe,
     AuthGuard,
+    AdminGuardGuard
   ],
   bootstrap: [AppComponent],
   entryComponents:[

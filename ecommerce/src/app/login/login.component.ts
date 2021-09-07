@@ -6,6 +6,8 @@ import { MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { OtpVerifyComponent } from '../otp-verify/otp-verify.component';
 import { Router } from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { BroadcastService } from '../services/broadcast.service';
+
 
 @Component({
   selector: 'app-login',
@@ -14,11 +16,13 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class LoginComponent implements OnInit {
   @Input() deviceXs: boolean = false;
+ 
   login = new Login();
   constructor(private loginServ:CommonService,
-    private dialog:MatDialog,
+    private dialog:MatDialog, 
     private _snackBar: MatSnackBar,
-    private _router:Router) { }
+    private _router:Router,
+    private boradcastService:BroadcastService) { }
 
   ngOnInit(): void {}
 
@@ -33,9 +37,11 @@ export class LoginComponent implements OnInit {
       console.log(res);
 
       if(res.status=="Login successful"){
+        console.log("login success")
         localStorage.setItem("username", loginForm.value.username);
         localStorage.setItem("customerType", res.customerType);
-        localStorage.setItem("usserid", res.id)
+        localStorage.setItem("userid", res.id);
+        this.boradcastService.boradcast("LOGGEDIN"); // Notify main header to change items in the menu
         // Redirect to the page accoring the user role
         if(res.customerType=="customer"){
           this._router.navigate(['/customer']);
@@ -58,22 +64,8 @@ export class LoginComponent implements OnInit {
       else if(res.status=="Login Failed"){//Show message login failed
         this._snackBar.open("Please check your username and password", 'Close', {duration: 3000});
       }
-
-
-
     });
 
 
   }
-  showDialog(){
-    console.log("show window")
-    const dialogConfig = new MatDialogConfig();
-        dialogConfig.disableClose = true;
-        dialogConfig.autoFocus = true;
-        dialogConfig.data = {otp: 1234, };
-      this.dialog.open(OtpVerifyComponent, dialogConfig);
-
-  }
-
-
 }

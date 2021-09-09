@@ -27,9 +27,6 @@ export class AuthService {
     this._router.navigate(['/']);
   }
 
-
- 
-
   isLoggedIn()  {
     let user: string = localStorage.getItem("username")||"";
     let type :string = localStorage.getItem("customerType")||"";

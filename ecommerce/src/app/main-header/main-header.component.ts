@@ -21,11 +21,13 @@ export class MainHeaderComponent implements  OnInit {
   loginStatus$! : Observable<boolean>;
   username$! : Observable<string>
   userType$! : Observable<string>
+  username=localStorage.getItem('username');
 
   constructor(private authService: AuthService,
     private brodcastService:BroadcastService){
       // Subscribe to broadcast service to change the menu at top left depending on login status
-    this.brodcastService.subscribe("LOGGEDIN", () => { 
+    this.brodcastService.subscribe("LOGGEDIN", () => {
+      this.username=localStorage.getItem('username');
       this.loginStatus$ = this.authService.isLoggedIn();
     });
    
@@ -36,6 +38,5 @@ export class MainHeaderComponent implements  OnInit {
   }
   onLogout(){
     this.authService.logout();
-    
   }
 }

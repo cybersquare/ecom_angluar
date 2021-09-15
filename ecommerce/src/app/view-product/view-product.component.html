@@ -1,0 +1,39 @@
+<p class="pstart">view-product works!</p>
+<div fxLayout="row" class="btm-margin" fxLayoutGap="20px">
+    <div fxFlex="40">
+        <img src="../../assets/produc_images/red shirt.jpg" class="img-prod" alt="" srcset="">
+    </div>
+    <div fxFlex="60">
+
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>Product Name</mat-card-title>
+                <mat-card-subtitle>Details</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+                <!-- <bar-rating [(rate)]="faoRate" [max]="10"></bar-rating> -->
+                <!-- <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating> -->
+                <!--  -->
+                <ngb-rating [(rate)]="currentRate">
+                    <ng-template let-fill="fill" let-index="index">
+                        <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
+                    </ng-template>
+                </ngb-rating>
+                <!--  -->
+                <h3>Description</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit quisquam sed, quia beatae doloremque asperiores labore porro nostrum reiciendis autem mollitia error tempore veritatis eum, culpa incidunt consequatur ipsa animi?</p>
+                <h3><strong>Price:</strong> {{price|currency:"INR":"symbol"}} </h3>
+
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Quantity</mat-label>
+                    <input matInput min="1" type="number" value="{{quantity}}" (change)="updtQunty()">
+                </mat-form-field>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button color="primary">Add To Cart<mat-icon>add_shopping_cart</mat-icon></button>
+                <button mat-raised-button color="accent">Buy Product</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

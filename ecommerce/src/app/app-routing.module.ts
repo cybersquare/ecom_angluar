@@ -7,6 +7,8 @@ import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { MainToolbarComponent } from './main-toolbar/main-toolbar.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { SearchProductsComponent } from './search-products/search-products.component';
+import { ViewProductComponent } from './view-product/view-product.component';
 // MainToolbarComponent
 const routes: Routes = [
   { path: '', component: MainToolbarComponent},
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'AboutUs', component: AboutUsComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'ProductSearch', component: SearchProductsComponent },
+  { path: 'ViewProduct', component: ViewProductComponent },
   // { path: 'login', component: LoginComponent , canActivate:[AuthGuard]}, Sample - How to apply auth guard 
   { path: 'adminLogin', component: AdminLoginComponent}
 ];

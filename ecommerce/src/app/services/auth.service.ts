@@ -25,7 +25,7 @@ export class AuthService {
     localStorage.removeItem("userid");
     // Navigate to homepage
     this._router.navigate(['/']);
-  }
+  } 
 
   isLoggedIn()  {
     let user: string = localStorage.getItem("username")||"";
@@ -35,5 +35,4 @@ export class AuthService {
     }
      return this.loginStatus.asObservable(); 
   }
-
 }

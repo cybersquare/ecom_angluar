@@ -4,8 +4,8 @@
         <mat-icon>menu</mat-icon>
       </button>
         <mat-form-field class="example-full-width">
-            <input type="text" matInput placeholder="search product">
-            <mat-icon matSuffix>search</mat-icon>
+            <input type="text" matInput placeholder="search product" [(ngModel)]="search">
+            <button mat-icon-button (click)="searchProduct()"><mat-icon matSuffix>search</mat-icon></button>
         </mat-form-field>
     </mat-toolbar>
 

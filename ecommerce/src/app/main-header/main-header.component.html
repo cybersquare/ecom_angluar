@@ -32,12 +32,12 @@
 <!-- Menu Items -->
 
 <mat-menu #menu="matMenu" fxLayoutAlign="end">
-    
+
 
     <button mat-menu-item routerLink="/register" *ngIf="!(loginStatus$|async) as status">Register</button>
-    <button mat-menu-item routerLink="/login"  *ngIf="!(loginStatus$|async) as status">Login</button>
-    
-    <button mat-menu-item (click)="onLogout()" *ngIf="(loginStatus$|async) as status">Logout</button>
+    <button mat-menu-item routerLink="/login" *ngIf="!(loginStatus$|async) as status">Login</button>
+
+    <button mat-menu-item (click)="onLogout()" *ngIf="(loginStatus$|async) as status">Logout {{username}}</button>
     <button mat-menu-item routerLink="/reseller">Go to reseller page(test)</button>
     <button mat-menu-item routerLink="/customer">Go to customer page(test)</button>
 

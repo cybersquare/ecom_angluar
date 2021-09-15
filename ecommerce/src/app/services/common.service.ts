@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { RegisterCustomer } from '../register/register-cust.model';
 import { RegisterReseller } from '../register/register-reselller.model';
 import { Login } from '../login/login.model';
 import { ResellerProduct } from '../reseller/view-products/viewProduct.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommonService {
 
-  private geturl = 'https://restcountries.eu/rest/v2/name/united';
+  private URL = 'http://localhost:8000/common/';
   private customerSignupUrl = 'http://cs-ecom.herokuapp.com/common/Ang_Signup';
   private resellerSignupUrl = 'http://cs-ecom.herokuapp.com/common/Ang_Signup';
   private loginUrl = "https://cs-ecom.herokuapp.com/common/Ang_Login";
@@ -18,6 +19,7 @@ export class CommonService {
   // private loginUrl = "";
   // private custOtpVerify = "https://cs-ecom.herokuapp.com/common/otpVerify";
   private resellerViewProdURL="http://cs-ecom.herokuapp.com/common/GetResProducts";
+  sharedSearchProductList : any;
   constructor(private httpclient:HttpClient) { }
 
   registerCustomer(reg:RegisterCustomer){
@@ -43,6 +45,10 @@ export class CommonService {
 
   resellerViewproduct(resdata: ResellerProduct){
     return this.httpclient.post<any>(this.resellerViewProdURL, resdata);
+  }
+
+  searchProduct(srchdata: any):Observable<HttpResponse<any>>{
+    return this.httpclient.post<any>(this.URL+"searchProducts", srchdata, { observe: 'response' });
   }
   
 }

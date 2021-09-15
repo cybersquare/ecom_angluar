@@ -1,0 +1,47 @@
+.mat-card {
+    height: 100%;
+}
+
+button {
+    height: 40px;
+}
+
+.pstart {
+    margin-top: 60px;
+}
+
+.img-prod {
+    width: 100%;
+    /* height: 100%; */
+}
+
+.prd-head {
+    text-align: center;
+}
+
+ngb-rating {
+    color: #FFC107;
+    font-size: 20px;
+}
+
+.btm-margin {
+    margin-bottom: 100px;
+}
+
+
+/* .star {
+    font-size: 1.5rem;
+    color: #b0c4de;
+}
+
+.filled {
+    color: #1e90ff;
+}
+
+.bad {
+    color: #deb0b0;
+}
+
+.filled.bad {
+    color: #ff1e1e;
+} */

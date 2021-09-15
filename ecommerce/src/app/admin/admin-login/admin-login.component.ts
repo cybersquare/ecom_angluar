@@ -5,6 +5,7 @@ import { AdminLoginModel } from './adminloginmodel';
 import { AdminService } from 'src/app/services/admin.service';
 import { Router } from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { BroadcastService } from 'src/app/services/broadcast.service';
 
 
 @Component({
@@ -14,7 +15,10 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class AdminLoginComponent implements OnInit {
 
-  constructor(private adminservice: AdminService, private router: Router, private _snackBar: MatSnackBar ) { }
+  constructor(private adminservice: AdminService, 
+    private router: Router, 
+    private _snackBar: MatSnackBar,
+    private broadcastService: BroadcastService ) { }
   ngOnInit(): void {
   }
   login = new AdminLoginModel();
@@ -44,9 +48,12 @@ export class AdminLoginComponent implements OnInit {
     this.adminservice.Adminlogin(this.login).subscribe(res=>{
       if(res.status == "success"){
         console.log(res)
-        sessionStorage.setItem('adminid',res.adminid)
+        localStorage.setItem('userid',res.adminid)
+        localStorage.setItem('username',"administrator")
         localStorage.setItem("customerType", 'admin');
+        this.broadcastService.boradcast("LOGGEDIN");
         this.router.navigate(['/admin/ManageResellers'])
+
       }
       else{
         console.log("Login Failed")

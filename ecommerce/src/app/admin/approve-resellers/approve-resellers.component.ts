@@ -12,6 +12,7 @@ export class ApproveResellersComponent implements OnInit {
   constructor(private addeResellerService:AdminService) { }
   ngOnInit(): void {
     this.getResellerdata()
+    // this.testobservable()
   }
   resellerSet: any;
   displayedColumns: string[] = ['Reseller Name', 'Address', 'Email', 'Mobile',  'bank', 'operations'];
@@ -27,6 +28,19 @@ export class ApproveResellersComponent implements OnInit {
     let req={"id": id, "status": status}
     this.addeResellerService.UpdateResellerRequest(req).subscribe(res=>{
       this.getResellerdata()
+    })
+  }
+
+  testobservable(){
+    this.addeResellerService.testobservable().subscribe(res=>{
+      console.log("success observable")
+      this.resellerSet=res.body
+      console.log(res)
+
+      // const ELEMENT_DATA: PeriodicElement[] = 
+    },
+    error =>{
+      console.log(error.statusText);
     })
   }
 }

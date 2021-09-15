@@ -24,6 +24,9 @@ import { OtpVerifyComponent } from './otp-verify/otp-verify.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { AdminGuardGuard } from './admin/admin-guard.guard';
+import { SearchProductsComponent } from './search-products/search-products.component';
+import { ViewProductComponent } from './view-product/view-product.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -38,7 +41,9 @@ import { AdminGuardGuard } from './admin/admin-guard.guard';
     FooterComponent,
     OtpVerifyComponent,
     ContactUsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    SearchProductsComponent,
+    ViewProductComponent
   ],
   imports: [
     HttpClientModule ,
@@ -51,6 +56,7 @@ import { AdminGuardGuard } from './admin/admin-guard.guard';
     ResellerModule,
     AdminModule,
     MaterialDesignModule,
+    NgbModule,
   ],
   providers: [
     DatePipe,

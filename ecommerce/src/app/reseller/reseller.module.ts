@@ -6,12 +6,16 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { MaterialDesignModule } from '../material-design/material-design.module';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import {FormsModule} from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http'
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     DashboardComponent,
     AddProductComponent,
     ViewProductsComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -19,6 +23,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http'
     MaterialDesignModule,
     FormsModule,
     HttpClientModule ,
+    ReactiveFormsModule,
 ],
 })
 export class ResellerModule { }

@@ -3,8 +3,9 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { RegisterCustomer } from '../register/register-cust.model';
 import { RegisterReseller } from '../register/register-reselller.model';
 import { Login } from '../login/login.model';
-import { ResellerProduct } from '../reseller/view-products/viewProduct.model';
+
 import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,8 @@ export class CommonService {
   // private custOtpVerify = "https://cs-ecom.herokuapp.com/common/otpVerify";
   private resellerViewProdURL="http://cs-ecom.herokuapp.com/common/GetResProducts";
   sharedSearchProductList : any;
+
+  
   constructor(private httpclient:HttpClient) { }
 
   registerCustomer(reg:RegisterCustomer){
@@ -42,9 +45,9 @@ export class CommonService {
     console.log("in service - User login");
     return this.httpclient.post<any>(this.loginUrl, login);
   }
-
-  resellerViewproduct(resdata: ResellerProduct){
-    return this.httpclient.post<any>(this.resellerViewProdURL, resdata);
+  ViewProfile(user: any){
+    console.log('working');
+    return this.httpclient.post(' http://cs-ecom.herokuapp.com/common/Profiledetails',user);
   }
 
   searchProduct(srchdata: any):Observable<HttpResponse<any>>{

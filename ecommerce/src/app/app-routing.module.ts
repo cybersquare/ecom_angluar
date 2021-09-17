@@ -9,6 +9,9 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { SearchProductsComponent } from './search-products/search-products.component';
 import { ViewProductComponent } from './view-product/view-product.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+
+
 // MainToolbarComponent
 const routes: Routes = [
   { path: '', component: MainToolbarComponent},
@@ -19,9 +22,10 @@ const routes: Routes = [
   { path: 'ProductSearch', component: SearchProductsComponent },
   { path: 'ViewProduct', component: ViewProductComponent },
   // { path: 'login', component: LoginComponent , canActivate:[AuthGuard]}, Sample - How to apply auth guard 
-  { path: 'adminLogin', component: AdminLoginComponent}
+  { path: 'adminLogin', component: AdminLoginComponent},
+  { path: 'adminLogin', component: AdminLoginComponent},
+  { path: 'view-profile', component: UserProfileComponent},
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

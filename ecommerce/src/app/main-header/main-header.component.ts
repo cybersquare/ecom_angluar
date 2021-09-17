@@ -2,18 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 import { BroadcastService } from '../services/broadcast.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-main-header',
   templateUrl: './main-header.component.html',
   styleUrls: ['./main-header.component.css']
 })
-// export class MainHeaderComponent  {
-
-//   @Input() deviceXs : boolean;
-
-// }
-
 export class MainHeaderComponent implements  OnInit {
   @Input()
   deviceXs: boolean = false;
@@ -24,6 +18,7 @@ export class MainHeaderComponent implements  OnInit {
   username=localStorage.getItem('username');
 
   constructor(private authService: AuthService,
+    private _router:Router,
     private brodcastService:BroadcastService){
       // Subscribe to broadcast service to change the menu at top left depending on login status
     this.brodcastService.subscribe("LOGGEDIN", () => {
@@ -38,5 +33,14 @@ export class MainHeaderComponent implements  OnInit {
   }
   onLogout(){
     this.authService.logout();
+  }
+  viewProfile(){
+    if(localStorage.getItem("customerType")=="customer"){
+      this._router.navigate(['/view-profile']);
+    }
+    else if(localStorage.getItem("customerType")=="reseller"){
+      this._router.navigate(['/view-profile']);
+    }
+
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ResellerProduct } from './viewProduct.model';
-import { CommonService } from '../../services/common.service';
+import { Product } from './product.model';
+import { ResellerService } from '../../services/reseller.service';
+
 
 @Component({
   selector: 'app-view-products',
@@ -8,18 +9,21 @@ import { CommonService } from '../../services/common.service';
   styleUrls: ['./view-products.component.css']
 })
 export class ViewProductsComponent implements OnInit {
-
-  constructor(private comservice:CommonService) { }
-  Rproducts = new ResellerProduct();
+  constructor(private service: ResellerService) { }
+  product = new Product()
   ngOnInit(): void {
     this.getProductdata()
   }
+  products:any
+  productObj:any
   getProductdata(){
-    this.Rproducts.id = "2";
+    this.product.id = "1";
     console.log("Product details loading");
-    this.comservice.resellerViewproduct(this.Rproducts).subscribe((res: any)=>{
-      console.log("got sresponse")
-      console.log(res);
-    })
+    console.log(this.product)
+    this.service.ViewProduct(this.product.id).subscribe((res: any)=>{
+      this.products = res
+      console.log(this.products)
+      console.log("got sresponse") 
+    });
   }
 }

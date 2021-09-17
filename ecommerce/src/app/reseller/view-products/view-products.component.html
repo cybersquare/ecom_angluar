@@ -1,28 +1,13 @@
 <div class="container product-card-container">
     <div class="row text-center">
-        <div class="col-lg-3 col-md-6 mb-4 product-card-div">
+        <div class="col-lg-3 col-md-6 mb-4 product-card-div" *ngFor="let item of products">
             <mat-card class="product-card">
-                <mat-card-title>Tshirt</mat-card-title>
+                <mat-card-title>{{item.title}}</mat-card-title>
                 <img mat-card-image src="../../../assets/produc_images/red shirt.jpg" alt="Photo of the Tshirt">
                 <mat-card-content>
-                    <h3>Rs 300</h3>
-                    <h3>Stock: 12</h3>
-                    <h3>Satus: Active</h3>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button mat-raised-button color="primary">Edit</button>
-                    <button mat-raised-button color="warn">Delete</button>
-                </mat-card-actions>
-            </mat-card>
-        </div>
-        <div class="col-lg-3 col-md-6 mb-4 product-card-div">
-            <mat-card class="product-card">
-                <mat-card-title>Iphone</mat-card-title>
-                <img mat-card-image src="../../../assets/produc_images/iphone.jpg" alt="Photo of the Tshirt">
-                <mat-card-content>
-                    <h3>Rs 300</h3>
-                    <h3>Stock: 12</h3>
-                    <h3>Satus: Active</h3>
+                    <h3><b>Price:</b> {{item.price}}</h3>
+                    <h3><b>Stock:</b> {{item.quantity}}</h3>
+                    <h3><b>Status:</b> {{item.status}}</h3>
                 </mat-card-content>
                 <mat-card-actions>
                     <button mat-raised-button color="primary">Edit</button>

@@ -6,12 +6,14 @@ import { MaterialDesignModule } from '../material-design/material-design.module'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { VieworderComponent } from './vieworder/vieworder.component';
 
 
 @NgModule({
   declarations: [
     NavigationComponent,
     CartComponent,
+    VieworderComponent,
   ],
   imports: [
     CommonModule,

@@ -10,13 +10,86 @@
     </mat-toolbar>
 
     <mat-drawer-container class="example-container">
-        <mat-drawer #drawer [mode]="deviceXs?'over':'side'" [opened]="deviceXs?false:true" position="start" fxFlex="20" fxLayout="column" fxLayoutAlign="start space-between" [style.marginTop.px]="10" [style.top.px]="sideBarScroll()">
-            <mat-list role="list" class="list-width" *ngFor="let i of [].constructor(20)">
+        <mat-drawer #drawer [mode]="deviceXs?'over':'side'" [opened]="deviceXs?false:true" position="start" fxFlex="25" fxLayout="column" fxLayoutAlign="start space-between" [style.marginTop.px]="10" [style.top.px]="sideBarScroll()">
+            <!-- <mat-list role="list" class="list-width" *ngFor="let i of [].constructor(20)">
                 <mat-list-item role="listitem" class="list-item" matRipple>Side Bar Item List</mat-list-item>
-            </mat-list>
+            </mat-list> -->
+            <mat-accordion class="example-headers-align" multi>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Shoes
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-selection-list #shoes>
+                        <mat-list-option *ngFor="let shoe of typesOfShoes">
+                            {{shoe}}
+                        </mat-list-option>
+                    </mat-selection-list>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Electronics
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <mat-selection-list #electronics>
+                        <mat-list-option *ngFor="let electronics of typesOfdElectronics">
+                            {{electronics}}
+                        </mat-list-option>
+                    </mat-selection-list>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Dress
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <mat-selection-list #dress>
+                        <mat-list-option *ngFor="let dress of typesOfdress">
+                            {{dress}}
+                        </mat-list-option>
+                    </mat-selection-list>
+                </mat-expansion-panel>
+            </mat-accordion>
         </mat-drawer>
         <!-- <p>Test</p> -->
         <mat-drawer-content>
+
+            <!-- creating Slider -->
+            <div class="slider-sizing">
+                <div id="myCarousel" class="carousel slide " data-bs-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+                        <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+                        <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="first-slider" width="100%" src="http://cs-ecom.herokuapp.com/static/ecom/images/125.jpg" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                        </div>
+                        <div class="carousel-item">
+                            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </a>
+                </div>
+            </div>
+            <!-- End slider -->
             <div class="example-sidenav-content" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
                 <mat-card class="example-card" *ngFor="let i of [].constructor(9)">
                     <mat-card-header>

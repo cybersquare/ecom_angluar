@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { CustomerserviceService } from 'src/app/services/customerservice.service';
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 
 declare var Razorpay: any;
 @Component({
@@ -10,7 +11,10 @@ declare var Razorpay: any;
 })
 export class CartComponent implements OnInit {
 
-  constructor(private _formBuilder: FormBuilder, private customerservice: CustomerserviceService) { }
+  constructor(private _formBuilder: FormBuilder, 
+    private customerservice: CustomerserviceService,
+    private _snackBar: MatSnackBar
+  ) { }
   price=20000;
   productdata: any;
   isLinear = false;
@@ -41,6 +45,7 @@ export class CartComponent implements OnInit {
     let customerid= localStorage.getItem('userid')
     let orderAddress=this.secondFormGroup.value.Address
     let data={"customerid": customerid, "totalprice": this.productdata.totalAmmount, "address": orderAddress}
+    var newThis=this;
     this.customerservice.createOrder(data).subscribe(res=>{
       console.log(res);
       // let responseid=
@@ -61,8 +66,9 @@ export class CartComponent implements OnInit {
           console.log("payment success")
             console.log(res.razorpay_payment_id);
             console.log(res.razorpay_order_id);
-            console.log(res.razorpay_signature)
-            this.updatePayment()
+            console.log(res.razorpay_signature);
+            newThis.updatePayment();
+            // this.handle_response(res);
         },
         "theme": {
             "color": "#3399cc"
@@ -83,10 +89,30 @@ export class CartComponent implements OnInit {
     })
   }
 
+  handle_response(_response: any){
+    console.log("success")
+  }
+
   updatePayment(){
     let data={"customerid": localStorage.getItem('userid')}
     this.customerservice.placeOrder(data).subscribe(res=>{
-      console.log(res)
+      if(res.status == 200){
+        console.log("200 response")
+        this.openSnackBar("Order Placed Successfully... Thank you for your Purchase")
+      }
+      else{
+        this.openSnackBar("Sorry... We are unable to process your order")
+      }
     })
+  }
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  openSnackBar(message: string) {
+    console.log("snackbar execution")
+    this._snackBar.open(message,"", {
+      duration: 3000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
   }
 }

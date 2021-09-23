@@ -46,4 +46,8 @@ export class MainHeaderComponent implements  OnInit {
   viewCart(){
     this._router.navigate(['/customer/ViewCart']);
   }
+
+  viewOrder(){
+    this._router.navigate(['/customer/ViewOrder'])
+  }
 }

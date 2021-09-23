@@ -29,8 +29,8 @@
                             <h4><strong>Price:</strong> {{num.price | currency:'INR'}}</h4>
                         </mat-card-content>
                         <mat-card-actions>
-                            <button mat-raised-button color="primary" (click)="addToCar(num.id)">Add To Cart <mat-icon>add_shopping_cart</mat-icon> </button>
-                            <button mat-raised-button color="warn">View Product </button>
+                            <button mat-raised-button color="primary">Add To Cart <mat-icon>add_shopping_cart</mat-icon> </button>
+                            <button mat-raised-button color="warn" (click)="viewProduct(num.id)">View Product </button>
                         </mat-card-actions>
                     </mat-card>
                 </div>

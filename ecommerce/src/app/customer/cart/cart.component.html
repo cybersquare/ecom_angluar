@@ -1,1 +1,107 @@
-<p>cart works!</p>
+<div class="bgcolor">
+    <h1>Buy your product</h1>
+    <div fxLayoutGap="20px" fxLayout="row" fxLayout.md="column" fxLayoutAlign="start start">
+        <div class="cart" fxFlex="60" fxFlex.md="100%">
+            <div fxLayout="row wrap" fxLayoutGap="20px " class="cart-all">
+                <mat-card class="example-card cart-prod-card" fxFlex="46%" fxFlex.xs="100%" fxFlexFill *ngFor="let prod of productdata.productdata">
+                    <mat-card-header>
+                        <mat-card-title>{{prod.productname}}</mat-card-title>
+
+                        <button mat-button class="close-btn" style="text-align: right;">
+                            <mat-icon fxLayoutAlign="end">close</mat-icon>
+                        </button>
+                    </mat-card-header>
+                    <mat-card-content fxLayoutAlign="center start">
+                        <img src="../../../assets/produc_images/iphone.jpg" height="250px" width="250px" alt="" srcset="">
+                    </mat-card-content>
+
+                    <mat-card-content fxLayoutAlign="center start">
+                        <h3><strong>Price:</strong> {{prod.productPrice | currency:'INR'}}</h3>
+                        <!-- <h4>Quantity: </h4> -->
+                    </mat-card-content>
+
+                    <mat-card-content fxLayoutAlign="center start">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Quantity</mat-label>
+                            <input matInput min="1" type="number" value={{prod.quantity}}>
+                        </mat-form-field>
+                        <!-- <h4>Quantity: </h4> -->
+                    </mat-card-content>
+
+                    <mat-card-actions fxLayoutAlign="center start">
+                        <button mat-flat-button color="warn">Remove</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+
+        </div>
+        <div fxFlex="40" fxFlex.md="100%">
+            <div fxLayout="column" fxLayoutGap="20px ">
+                <!-- Bill ammount card -->
+                <mat-card>
+                    <h3>Total Bill Ammount : {{productdata.totalAmmount | currency:'INR'}}</h3>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your coupon code </mat-label>
+                        <input matInput placeholder="ABD13F">
+                    </mat-form-field>
+                </mat-card>
+                <!-- Bill ammount card ends here -->
+                <mat-card fxLayout="row wrap">
+                    <!-- stepper form starting -->
+                    <mat-stepper [linear]="isLinear" #stepper>
+                        <mat-step [stepControl]="firstFormGroup">
+                            <form [formGroup]="firstFormGroup">
+                                <ng-template matStepLabel>Fill out your name</ng-template>
+                                <mat-form-field appearance="fill" class="example-full-width">
+                                    <mat-label>First Name</mat-label>
+                                    <input matInput placeholder="First name" formControlName="fname" required>
+                                </mat-form-field>
+                                <mat-form-field appearance="fill" class="example-full-width">
+                                    <mat-label>Last Name</mat-label>
+                                    <input matInput placeholder="Last name" formControlName="lname" required>
+                                </mat-form-field>
+                                <div>
+                                    <button mat-raised-button matStepperNext color="primary">Next</button>
+                                </div>
+                            </form>
+                        </mat-step>
+                        <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+                            <form [formGroup]="secondFormGroup">
+                                <mat-form-field appearance="fill" class="example-full-width">
+                                    <mat-label>Address</mat-label>
+                                    <textarea matInput formControlName="Address" placeholder="Ex. 1 Main St, New York, NY" required></textarea>
+                                </mat-form-field>
+
+                                <mat-form-field appearance="fill" class="example-full-width">
+                                    <mat-label>Mobile</mat-label>
+                                    <input matInput placeholder="Ex. 1234567890" formControlName="mobile" required>
+                                </mat-form-field>
+
+                                <mat-form-field appearance="fill" class="example-full-width">
+                                    <mat-label>Email</mat-label>
+                                    <input matInput placeholder="EX. user@gmail.com" formControlName="mobile" required>
+                                </mat-form-field>
+
+                                <div>
+                                    <button mat-button matStepperPrevious>Back</button>
+                                    <button mat-raised-button matStepperNext color="primary">Next</button>
+                                </div>
+                            </form>
+                        </mat-step>
+                        <mat-step>
+                            <ng-template matStepLabel>Done</ng-template>
+                            <h3>{{productdata.totalAmmount | currency:'INR'}}</h3>
+                            <p>Proceed to Pay</p>
+                            <div>
+                                <button mat-button (click)="stepper.reset()">Cancel</button>
+                                <button mat-raised-button color="primary" (click)="createRzpayOrder()">Pay</button>
+                            </div>
+                        </mat-step>
+                    </mat-stepper>
+                    <!-- stepper form ending -->
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

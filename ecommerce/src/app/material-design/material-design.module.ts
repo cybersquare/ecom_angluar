@@ -22,6 +22,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BarRatingModule } from 'ngx-bar-rating';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatStepperModule} from '@angular/material/stepper';
 
 const MaterialComponents =[
   MatProgressSpinnerModule,
@@ -46,6 +48,8 @@ const MaterialComponents =[
   MatGridListModule,
   MatDialogModule,
   BarRatingModule,
+  MatProgressBarModule,
+  MatStepperModule,
 ]
 
 

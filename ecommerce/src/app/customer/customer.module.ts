@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { NavigationComponent } from './navigation/navigation.component';
 import { CustomerRoutingModule } from './customer-routing.module';
 import { MaterialDesignModule } from '../material-design/material-design.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from './cart/cart.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -17,6 +18,8 @@ import { CartComponent } from './cart/cart.component';
     CustomerRoutingModule,
     MaterialDesignModule,
     FormsModule,
+    FlexLayoutModule,
+    ReactiveFormsModule,
   ],
   exports: [
     NavigationComponent

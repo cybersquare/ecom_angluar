@@ -12,14 +12,15 @@ import { Observable } from 'rxjs';
 })
 export class CommonService {
 
-  private URL = 'http://localhost:8000/common/';
+  private URL = 'http://cs-ecom.herokuapp.com/common/';
   private customerSignupUrl = 'http://cs-ecom.herokuapp.com/common/Ang_Signup';
-  private resellerSignupUrl = 'http://cs-ecom.herokuapp.com/common/Ang_Signup';
+  private resellerSignupUrl = 'http://localhost:8000/common/Ang_Signup';
   private loginUrl = "https://cs-ecom.herokuapp.com/common/Ang_Login";
   private verifyOtpUrl = "https://cs-ecom.herokuapp.com/common/otpVerify"
   // private loginUrl = "";
   // private custOtpVerify = "https://cs-ecom.herokuapp.com/common/otpVerify";
   private resellerViewProdURL="http://cs-ecom.herokuapp.com/common/GetResProducts";
+  productViewId: string="";
   sharedSearchProductList : any;
 
   
@@ -52,6 +53,11 @@ export class CommonService {
 
   searchProduct(srchdata: any):Observable<HttpResponse<any>>{
     return this.httpclient.post<any>(this.URL+"searchProducts", srchdata, { observe: 'response' });
+  }
+
+  customerViewProducts():Observable<HttpResponse<any>>{
+    let data={'productid': this.productViewId }
+    return this.httpclient.post<any>(this.URL+"ProductView", data, { observe: 'response' })
   }
   
 }

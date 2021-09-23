@@ -41,6 +41,9 @@ export class MainHeaderComponent implements  OnInit {
     else if(localStorage.getItem("customerType")=="reseller"){
       this._router.navigate(['/view-profile']);
     }
+  }
 
+  viewCart(){
+    this._router.navigate(['/customer/ViewCart']);
   }
 }

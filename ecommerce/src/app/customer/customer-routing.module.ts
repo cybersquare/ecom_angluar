@@ -1,15 +1,13 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from '@angular/router';
-
-import { NavigationComponent } from "./navigation/navigation.component";
+import { ContentComponent } from "../content/content.component";
+import { CartComponent } from "./cart/cart.component";
 
 
 const routes: Routes=[
-    {path: 'customer', component: NavigationComponent,
+    {path: 'customer', component: ContentComponent,
     children: [ 
-        // {path:'addproduct', component:AddProductComponent},
-        // {path:'products', component:ViewProductsComponent},
-        // { path: '', redirectTo: 'products', pathMatch: 'full' },   
+        {path:'ViewCart', component: CartComponent},  
     ]
 },   
 ];

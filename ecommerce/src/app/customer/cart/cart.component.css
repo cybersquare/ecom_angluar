@@ -1,0 +1,42 @@
+h1 {
+    margin-top: 70px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.bgcolor {
+    background-color: #E0F2F1;
+}
+
+.cart-all {
+    margin: 10px;
+    background-color: #E0F2F1;
+}
+
+.cart-prod-card {
+    margin-top: 10px;
+    background-color: #ffffff;
+}
+
+.mat-stepper-horizontal {
+    margin-top: 8px;
+}
+
+.mat-form-field {
+    margin-top: 16px;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.close-btn {
+    height: 30px;
+    width: 20px;
+}
+
+
+/* .example-card {
+    max-width: 400px;
+} */

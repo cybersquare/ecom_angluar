@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonService } from '../services/common.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { CommonService } from '../services/common.service';
   styleUrls: ['./search-products.component.css']
 })
 export class SearchProductsComponent implements OnInit {
-  constructor(private commonservice: CommonService) { }
+  constructor(private commonservice: CommonService, private _router: Router) { }
   searchProd: any;
   ngOnInit(): void {
     this.searchProd=this.commonservice.sharedSearchProductList
@@ -16,7 +17,8 @@ export class SearchProductsComponent implements OnInit {
   }
   typesOfShoes: string[] = ['Filter', 'Sort', 'Compare'];
 
-  addToCar(id: string){
-    console.log(id);
+  viewProduct(id: string){
+    this.commonservice.productViewId=id;
+    this._router.navigate(['/ViewProduct'])
   }
 }

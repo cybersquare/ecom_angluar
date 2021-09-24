@@ -1,0 +1,53 @@
+    <div>
+     <form #updateProduct="ngForm" method="POST" (ngSubmit)="update()">
+                <mat-card class="reg-container card">
+                    <mat-card-title class="card-title">Update product</mat-card-title>
+                    <mat-card-content>
+                        <mat-form-field appearance="fill" class="full-width">
+                            <mat-label>Title</mat-label>
+                            <input matInput #title="ngModel" name="title" required  [(ngModel)]="updateInstance.title">
+                            <mat-error *ngIf="title.errors?.required && title.touched">
+                                Please enter the title
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" class="full-width">
+                            <mat-label>Description</mat-label>
+                            <textarea matInput #description="ngModel" name="description" [(ngModel)]="updateInstance.description" required></textarea>
+                            <mat-error *ngIf="description.errors?.required && description.touched">
+                                Please enter a description about the product
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" class="full-width">
+                            <mat-label>Price</mat-label>
+                            <input type="number" #price="ngModel" name="price" matInput [(ngModel)]="updateInstance.price" required>
+                            <mat-error *ngIf="price.errors?.required && price.touched">
+                                Please enter the price
+                            </mat-error>
+                        </mat-form-field>
+                        <!-- quantity -->
+                        <mat-form-field appearance="fill" class="full-width">
+                            <mat-label>Quantity</mat-label>
+                            <input type="number" #quantity="ngModel" name="quantity" matInput [(ngModel)]="updateInstance.quantity" required>
+                            <mat-error *ngIf="quantity.errors?.required && quantity.touched">
+                                Please enter the quantity
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" class="full-width">
+                                    <mat-label>Status</mat-label>
+                                    <mat-select #status="ngModel" name="status" [(ngModel)]="updateInstance.status" required>
+                                        <mat-option value="active">Active</mat-option>
+                                        <mat-option value="draft">Draft</mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="status.errors?.required && status.touched">
+                                     Please select the status
+                                    </mat-error>
+                        </mat-form-field>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button type="submit" mat-raised-button color="accent">Update product</button>
+                    </mat-card-actions>
+                </mat-card>
+            </form>
+  </div>
+   
+        

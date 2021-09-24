@@ -8,6 +8,8 @@ import { ViewProductsComponent } from './view-products/view-products.component';
 import {FormsModule} from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 
 @NgModule({
@@ -15,6 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     DashboardComponent,
     AddProductComponent,
     ViewProductsComponent,
+    ConfirmationDialogComponent,
+    UpdateProductComponent,
     
   ],
   imports: [

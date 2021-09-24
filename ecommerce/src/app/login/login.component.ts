@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     console.log(this.login);
     this.loginServ.userLogin(this.login).subscribe(res =>{
 
-      console.log(res);
+      console.log("this my login",res);
 
       if(res.status=="Login successful"){
         console.log("login success")

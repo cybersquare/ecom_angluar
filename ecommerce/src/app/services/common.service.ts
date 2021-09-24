@@ -59,5 +59,9 @@ export class CommonService {
     let data={'productid': this.productViewId }
     return this.httpclient.post<any>(this.URL+"ProductView", data, { observe: 'response' })
   }
+  changePassword(data:any){
+    console.log("working");
+    return this.httpclient.post('http://cs-ecom.herokuapp.com/common/changePassword',data);
+  }
   
 }

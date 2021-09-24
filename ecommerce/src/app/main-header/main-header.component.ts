@@ -50,4 +50,7 @@ export class MainHeaderComponent implements  OnInit {
   viewOrder(){
     this._router.navigate(['/customer/ViewOrder'])
   }
+  changePassword(){
+    this._router.navigate(['/change-password']);
+  }
 }

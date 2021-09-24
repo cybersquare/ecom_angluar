@@ -9,121 +9,122 @@
                         <!-- title -->
                         <mat-form-field appearance="fill" class="full-width">
                             <mat-label>Title</mat-label>
-                            <input matInput formControlName="title" required>
-                            <!-- <mat-error *ngIf="title.errors?.required && title.touched">
+                            <input matInput formControlName="title" id="title" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                            <mat-error *ngIf="submitted && f.title.errors">
                                 Product title is required
-                            </mat-error> -->
+                            </mat-error>
                         </mat-form-field>
                         <!-- product id -->
                         <mat-form-field appearance="fill" class="full-width">
                             <mat-label>Registered Product Id</mat-label>
-                            <input matInput formControlName="regprodid" required>
-                            <!-- <mat-error *ngIf="regprodid.errors?.required && regprodid.touched">
+                            <input matInput formControlName="regprodid" [ngClass]="{ 'is-invalid': submitted && f.regprodid.errors }">
+                            <mat-error *ngIf="submitted && f.regprodid.errors">
                                 Registered product id is required
-                            </mat-error> -->
+                            </mat-error>
                         </mat-form-field>
                         <!-- description -->
                         <mat-form-field class="full-width" appearance="fill">
                             <mat-label>Description</mat-label>
-                            <textarea matInput formControlName="description" required></textarea>
-                            <!-- <mat-error *ngIf="description.errors?.required && description.touched">
+                            <textarea matInput formControlName="description" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"></textarea>
+                            <mat-error *ngIf="submitted && f.description.errors">
                                 Please enter a description about the product.
-                            </mat-error> -->
+                            </mat-error>
                         </mat-form-field>
                         <!-- product image -->
-                        <label>Upload product pictures*</label>
-                        <input type="file" class="form-control" (change)="uploadFile($event)" required>
-
-                        <!-- <div *ngIf="prodimg.errors?.required && prodimg.touched" class="prodimgFont">
-                            Please upload a picture.
-                        </div> -->
+                        <label>Upload product pictures</label>
+                        <input type="file" #inputFile (change)="uploadFile($event)" [ngClass]="{ 'is-invalid': submitted && f.avatar.errors }">
+                        <mat-error *ngIf="submitted && f.avatar.errors && inputfileValidation">
+                            Please upload the product picture
+                        </mat-error>
                         <!-- price -->
                         <mat-form-field appearance="fill" class="full-width">
                             <mat-label>Price</mat-label>
-                            <input type="number" matInput formControlName="price" required>
-                            <!-- <mat-error *ngIf="price.errors?.required && price.touched">
+                            <input type="number" matInput formControlName="price" [ngClass]="{ 'is-invalid': submitted && f.price.errors }">
+                            <mat-error *ngIf="submitted && f.price.errors">
                                 Please enter the price
-                            </mat-error> -->
+                            </mat-error>
                         </mat-form-field>
                         <!-- quantity -->
                         <mat-form-field appearance="fill" class="full-width">
                             <mat-label>Quantity</mat-label>
-                            <input type="number" matInput formControlName="quantity" required>
-                            <!-- <mat-error *ngIf="quantity.errors?.required && quantity.touched">
+                            <input type="number" matInput formControlName="quantity" [ngClass]="{ 'is-invalid': submitted && f.quantity.errors }">
+                            <mat-error *ngIf="submitted && f.quantity.errors">
                                 Please enter the quantity
-                            </mat-error> -->
+                            </mat-error>
                         </mat-form-field>
                         <!-- Weight and weight unit -->
                         <mat-grid-list cols="2" rowHeight="100px" gutterSize="30px" class="full-width">
                             <mat-grid-tile>
                                 <mat-form-field appearance="fill" class="full-width">
                                     <mat-label>Weight</mat-label>
-                                    <input type="number" matInput formControlName="weight" required>
-                                    <!-- <mat-error *ngIf="weight.errors?.required && weight.touched">
+                                    <input type="number" matInput formControlName="weight" [ngClass]="{ 'is-invalid': submitted && f.weight.errors }">
+                                    <mat-error *ngIf="submitted && f.weight.errors">
                                         Please enter the weight
-                                    </mat-error> -->
+                                    </mat-error>
                                 </mat-form-field>
                             </mat-grid-tile>
                             <mat-grid-tile>
                                 <mat-form-field appearance="fill" class="full-width">
                                     <mat-label>Unit</mat-label>
-                                    <mat-select formControlName="unit" required>
+                                    <mat-select formControlName="unit" [ngClass]="{ 'is-invalid': submitted && f.unit.errors }">
                                         <mat-option value="one">kg</mat-option>
                                         <mat-option value="two">g</mat-option>
                                         <mat-option value="three">lb</mat-option>
                                         <mat-option value="four">oz</mat-option>
                                     </mat-select>
-                                    <!-- <mat-error *ngIf="unit.errors?.required && unit.touched">
+                                    <mat-error *ngIf="submitted && f.unit.errors">
                                         Please select the weight unit
-                                    </mat-error> -->
+                                    </mat-error>
                                 </mat-form-field>
                             </mat-grid-tile>
                         </mat-grid-list>
                         <!-- category -->
                         <mat-form-field appearance="fill" class="full-width">
                             <mat-label>Category</mat-label>
-                            <mat-select formControlName="category" required>
-                                <mat-option>None</mat-option>
-                                <mat-option value="gadgets">Gadgets</mat-option>
-                                <mat-option value="cloths">Cloths</mat-option>
+                            <mat-select formControlName="category" id="category" size="1" (selectionChange)="makeSubmenu();" [ngClass]="{ 'is-invalid': submitted && f.category.errors }">
+                                <mat-option value="" disabled>None</mat-option>
+                                <mat-option value="Gadgets">Gadgets</mat-option>
+                                <mat-option value="Clothes">Clothes</mat-option>
+                                <mat-option value="Footwear">Footwear</mat-option>
                             </mat-select>
-                            <!-- <mat-error *ngIf="category.errors?.required && category.touched">
+                            <mat-error *ngIf="submitted && f.category.errors">
                                 Please select the product category
-                            </mat-error> -->
+                            </mat-error>
                         </mat-form-field>
                         <!-- subcategory need to add here -->
                         <mat-form-field appearance="fill" class="full-width">
                             <mat-label>Sub Category</mat-label>
-                            <mat-select naformControlName="subcategory" required>
-                                <mat-option>None</mat-option>
-                                <mat-option value="gadgets">Tshirt</mat-option>
-                                <mat-option value="cloths">Pants</mat-option>
+                            <mat-select formControlName="subcategory" size="1" required [ngClass]="{ 'is-invalid': submitted && f.subcategory.errors }" id="subcategory">
+                                <mat-option value="" disabled selected>None</mat-option>
+                                <mat-option *ngFor="let item of subcategoryList" value="one">
+                                    {{item}}
+                                </mat-option>
                             </mat-select>
-                            <!-- <mat-error *ngIf="category.errors?.required && category.touched">
+                            <mat-error *ngIf="submitted && f.subcategory.errors">
                                 Please select the product category
-                            </mat-error> -->
+                            </mat-error>
                         </mat-form-field>
                         <!-- brand and status -->
                         <mat-grid-list cols="2" rowHeight="100px" gutterSize="30px" class="full-width">
                             <mat-grid-tile>
                                 <mat-form-field appearance="fill" class="full-width">
                                     <mat-label>Brand</mat-label>
-                                    <input matInput formControlName="brand" required>
-                                    <!-- <mat-error *ngIf="brand.errors?.required && brand.touched">
+                                    <input matInput formControlName="brand" [ngClass]="{ 'is-invalid': submitted && f.brand.errors }">
+                                    <mat-error *ngIf="submitted && f.brand.errors">
                                         Please enter the product brand
-                                    </mat-error> -->
+                                    </mat-error>
                                 </mat-form-field>
                             </mat-grid-tile>
                             <mat-grid-tile>
                                 <mat-form-field appearance="fill" class="full-width">
                                     <mat-label>Status</mat-label>
-                                    <mat-select formControlName="status" required>
+                                    <mat-select formControlName="status" [ngClass]="{ 'is-invalid': submitted && f.status.errors }">
                                         <mat-option value="active">Active</mat-option>
                                         <mat-option value="draft">Draft</mat-option>
                                     </mat-select>
-                                    <!-- <mat-error *ngIf="status.errors?.required && status.touched">
+                                    <mat-error *ngIf="submitted && f.status.errors">
                                         Please select the status
-                                    </mat-error> -->
+                                    </mat-error>
                                 </mat-form-field>
                             </mat-grid-tile>
                         </mat-grid-list>

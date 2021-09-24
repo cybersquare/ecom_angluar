@@ -37,6 +37,7 @@
     <button mat-menu-item (click)="viewProfile()" *ngIf="(loginStatus$|async) as status">View profile</button>
     <button mat-menu-item (click)="viewCart()" *ngIf="(loginStatus$|async) as status">View Cart</button>
     <button mat-menu-item (click)="viewOrder()" *ngIf="(loginStatus$|async) as status">View Order</button>
+    <button mat-menu-item (click)="changePassword()" *ngIf="(loginStatus$|async) as status">Change Password</button>
     <button mat-menu-item routerLink="/reseller">Go to reseller page(test)</button>
     <button mat-menu-item routerLink="/customer">Go to customer page(test)</button>
 </mat-menu>

@@ -10,6 +10,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { SearchProductsComponent } from './search-products/search-products.component';
 import { ViewProductComponent } from './view-product/view-product.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 // MainToolbarComponent
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'adminLogin', component: AdminLoginComponent},
   { path: 'adminLogin', component: AdminLoginComponent},
   { path: 'view-profile', component: UserProfileComponent},
+  { path: 'change-password', component: ChangePasswordComponent},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

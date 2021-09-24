@@ -25,8 +25,8 @@ import { AdminGuardGuard } from './admin/admin-guard.guard';
 import { SearchProductsComponent } from './search-products/search-products.component';
 import { ViewProductComponent } from './view-product/view-product.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 @NgModule({
@@ -43,7 +43,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AboutUsComponent,
     SearchProductsComponent,
     ViewProductComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ChangePasswordComponent
   ],
   imports: [
     HttpClientModule ,

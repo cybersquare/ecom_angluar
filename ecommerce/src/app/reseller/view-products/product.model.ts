@@ -1,3 +1,6 @@
 export class Product{
-    id: string = "";
+    id: any;
+}
+export class DeleteProduct{
+    product_id : any;
 }

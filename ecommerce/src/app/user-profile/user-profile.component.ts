@@ -11,7 +11,8 @@ export class UserProfileComponent implements OnInit {
   constructor(private service: CommonService) { }
   user = new User()
   result :any
-  public isReseller = false
+  public isReseller = false;
+  public isCustomer = false;
   ngOnInit(): void {
     this.userDetails()
   }
@@ -19,7 +20,10 @@ export class UserProfileComponent implements OnInit {
     this.user.id = localStorage.getItem("userid")
     this.user.usertype = localStorage.getItem("customerType")
     if (this.user.usertype =="reseller") {
-      this.isReseller = true
+      this.isReseller = true;
+    }
+    else{
+      this.isCustomer = true;
     }
     this.service.ViewProfile(this.user).subscribe((res: any)=>{
       this.result = res

@@ -1,0 +1,46 @@
+<div>
+    <form #editProfile="ngForm" method="POST" (ngSubmit)="edit()">
+        <mat-card class="reg-container card">
+            <mat-card-title class="card-title">Edit profile</mat-card-title>
+            <mat-card-content>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>name</mat-label>
+                    <input matInput #name="ngModel" name="name" required [(ngModel)]="editInstance.name">
+                    <mat-error *ngIf="name.errors?.required && name.touched">
+                        Please enter the name
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput #address="ngModel" name="address" required [(ngModel)]="editInstance.address"></textarea>
+                    <mat-error *ngIf="address.errors?.required && address.touched">
+                        Please enter your address
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Country</mat-label>
+                    <mat-select #country="ngModel" name="country" [(ngModel)]="editInstance.country">
+                        <mat-option value="India">India</mat-option>
+                        <mat-option value="India">USA</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="country.errors?.required && country.touched">
+                        Please enter your country
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>phone</mat-label>
+                    <input matInput #phone="ngModel" name="phone" required minlength="10" [(ngModel)]="editInstance.mobile">
+                    <mat-error *ngIf="phone.errors?.required && phone.touched">
+                        Please enter your phone number
+                    </mat-error>
+                    <mat-error *ngIf="phone.errors?.minlength && phone.touched">
+                        The phone number should have atleast 10 digits
+                    </mat-error>
+                </mat-form-field>
+            </mat-card-content>
+            <mat-card-actions>
+                <button type="submit" mat-raised-button color="accent">Edit profile</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</div>

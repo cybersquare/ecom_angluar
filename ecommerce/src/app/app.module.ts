@@ -27,6 +27,7 @@ import { ViewProductComponent } from './view-product/view-product.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     SearchProductsComponent,
     ViewProductComponent,
     UserProfileComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    EditProfileComponent
   ],
   imports: [
     HttpClientModule ,

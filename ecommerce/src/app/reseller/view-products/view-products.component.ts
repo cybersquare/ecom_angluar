@@ -13,7 +13,8 @@ import { UpdateProductComponent } from '../update-product/update-product.compone
   styleUrls: ['./view-products.component.css']
 })
 export class ViewProductsComponent implements OnInit {
-  constructor(private service: ResellerService, private dialog: MatDialog,
+  constructor(private service: ResellerService, 
+    private dialog: MatDialog,
     private snackBar: MatSnackBar) { }
   public product = new Product()
   ngOnInit(): void {

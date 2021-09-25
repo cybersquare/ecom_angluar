@@ -1,11 +1,15 @@
 <table class="table table-striped">
   <tbody>
-    <tr>
-      <th scope="row">name</th>
-      <td>{{result.name}}</td>
+    <tr *ngIf="isCustomer">
+      <th scope="row">Name</th>
+      <td>{{result.fname}} {{result.lname}}</td>
     </tr>
      <tr *ngIf="isReseller">
-      <th scope="row">company id</th>
+      <th scope="row">Reseller name</th>
+      <td>{{result.Rname}}</td>
+    </tr>
+     <tr *ngIf="isReseller">
+      <th scope="row">Company id</th>
       <td >{{result.Rid}}</td>
     </tr>
     <tr>
@@ -13,7 +17,7 @@
       <td>{{result.address}}</td>
     </tr>
     <tr *ngIf="isCustomer">
-      <th scope="row">date of birth</th>
+      <th scope="row">Date of birth</th>
       <td>{{result.dob}}</td>
     </tr>
     <tr *ngIf="isCustomer">
@@ -21,15 +25,15 @@
       <td>{{result.gender}}</td>
     </tr>
     <tr>
-      <th scope="row">country</th>
+      <th scope="row">Country</th>
       <td>{{result.country}}</td>
     </tr>
     <tr>
-      <th scope="row">mobile</th>
+      <th scope="row">Mobile</th>
       <td>{{result.mobile}}</td>
     </tr>
     <tr>
-      <th scope="row">email</th>
+      <th scope="row">Email</th>
       <td>{{result.email}}</td>
     </tr>
   </tbody>

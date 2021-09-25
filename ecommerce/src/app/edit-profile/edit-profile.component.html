@@ -3,24 +3,35 @@
         <mat-card class="reg-container card">
             <mat-card-title class="card-title">Edit profile</mat-card-title>
             <mat-card-content>
-                <mat-form-field appearance="fill" class="full-width">
-                    <mat-label>name</mat-label>
-                    <input matInput #name="ngModel" name="name" required [(ngModel)]="editInstance.name">
+                <mat-form-field appearance="fill" class="full-width" *ngIf="isReseller">
+                    <mat-label>Reseller name</mat-label>
+                    <input matInput #name="ngModel" name="name" [(ngModel)]="editInstance.firstname" required>
                     <mat-error *ngIf="name.errors?.required && name.touched">
                         Please enter the name
                     </mat-error>
                 </mat-form-field>
+                 <mat-form-field appearance="fill" class="full-width" *ngIf="isCustomer">
+                    <mat-label>First name</mat-label>
+                    <input matInput #fname="ngModel" name="fname" [(ngModel)]="editInstance.firstname" required>
+                    <mat-error *ngIf="fname.errors?.required && fname.touched">
+                        Please enter the first name
+                    </mat-error>
+                </mat-form-field>
+                 <mat-form-field appearance="fill" class="full-width" *ngIf="isCustomer">
+                    <mat-label>Last name</mat-label>
+                    <input matInput #lname="ngModel" name="lname" [(ngModel)]="editInstance.lastname">
+                </mat-form-field>
                 <mat-form-field appearance="fill" class="full-width">
                     <mat-label>Address</mat-label>
-                    <textarea matInput #address="ngModel" name="address" required [(ngModel)]="editInstance.address"></textarea>
+                    <textarea matInput #address="ngModel" name="address" [(ngModel)]="editInstance.address" required></textarea>
                     <mat-error *ngIf="address.errors?.required && address.touched">
                         Please enter your address
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="fill" class="full-width">
                     <mat-label>Country</mat-label>
-                    <mat-select #country="ngModel" name="country" [(ngModel)]="editInstance.country">
-                        <mat-option value="India">India</mat-option>
+                    <mat-select #country="ngModel" name="country" [(ngModel)]="editInstance.country" required>
+                        <mat-option value="india">India</mat-option>
                         <mat-option value="India">USA</mat-option>
                     </mat-select>
                     <mat-error *ngIf="country.errors?.required && country.touched">
@@ -29,11 +40,11 @@
                 </mat-form-field>
                 <mat-form-field appearance="fill" class="full-width">
                     <mat-label>phone</mat-label>
-                    <input matInput #phone="ngModel" name="phone" required minlength="10" [(ngModel)]="editInstance.mobile">
+                    <input matInput #phone="ngModel" name="phone" minlength="10" [(ngModel)]="editInstance.mobile" required>
                     <mat-error *ngIf="phone.errors?.required && phone.touched">
                         Please enter your phone number
                     </mat-error>
-                    <mat-error *ngIf="phone.errors?.minlength && phone.touched">
+                    <mat-error *ngIf="phone.errors?.minlength && phone.errors?.required && phone.touched">
                         The phone number should have atleast 10 digits
                     </mat-error>
                 </mat-form-field>

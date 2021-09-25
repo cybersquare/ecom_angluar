@@ -5,14 +5,14 @@
                     <mat-card-content>
                         <mat-form-field appearance="fill" class="full-width">
                             <mat-label>Title</mat-label>
-                            <input matInput #title="ngModel" name="title" required  [(ngModel)]="updateInstance.title">
+                            <input #title="ngModel" name="title" matInput [(ngModel)]="updateInstance.title" required>
                             <mat-error *ngIf="title.errors?.required && title.touched">
                                 Please enter the title
                             </mat-error>
                         </mat-form-field>
                         <mat-form-field appearance="fill" class="full-width">
                             <mat-label>Description</mat-label>
-                            <textarea matInput #description="ngModel" name="description" [(ngModel)]="updateInstance.description" required></textarea>
+                            <textarea #description="ngModel" name="description" matInput [(ngModel)]="updateInstance.description" required></textarea>
                             <mat-error *ngIf="description.errors?.required && description.touched">
                                 Please enter a description about the product
                             </mat-error>
@@ -24,7 +24,6 @@
                                 Please enter the price
                             </mat-error>
                         </mat-form-field>
-                        <!-- quantity -->
                         <mat-form-field appearance="fill" class="full-width">
                             <mat-label>Quantity</mat-label>
                             <input type="number" #quantity="ngModel" name="quantity" matInput [(ngModel)]="updateInstance.quantity" required>

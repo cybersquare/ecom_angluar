@@ -45,7 +45,7 @@ export class UserProfileComponent implements OnInit {
     });   
     dialogRef.afterClosed().subscribe((confirmed: boolean) => {
       if (confirmed) {
-       
+       this.userDetails();
       }
     });
   }

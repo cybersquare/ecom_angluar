@@ -48,7 +48,11 @@ export class CommonService {
   }
   ViewProfile(user: any){
     console.log('working');
-    return this.httpclient.post(' http://cs-ecom.herokuapp.com/common/Profiledetails',user);
+    return this.httpclient.post('http://cs-ecom.herokuapp.com/common/Profiledetails',user);
+  }
+  EditProfile(user: any){
+    console.log('working');
+    return this.httpclient.post('http://cs-ecom.herokuapp.com/common/AngEditProfile',user);
   }
 
   searchProduct(srchdata: any):Observable<HttpResponse<any>>{

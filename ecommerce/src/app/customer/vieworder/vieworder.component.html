@@ -4,30 +4,35 @@
             <tr>
                 <th scope="col"></th>
                 <th scope="col" class="centr-y">product</th>
-                <th scope="col" class="centr-y">Expected delivery date</th>
+                <th scope="col" class="centr-y">Order date</th>
+                <th scope="col" class="centr-y"
+                >Quantity</th>
                 <th scope="col" class="centr-y">Price</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let prodDetails of ProductDetails.purchaseproducts">
                 <td><img src="../../../assets/produc_images/macbook.jpg" height="100px" width="100px"></td>
-                <td class="centr-y">Macbook Pro</td>
-                <td class="centr-y">Dec 10, 2021</td>
-                <td class="centr-y">2000Rs</td>
+                <td class="centr-y">{{prodDetails.productName}}</td>
+                <td class="centr-y">{{prodDetails.orderdate}}</td>
+                <td class="centr-y">{{prodDetails.quantity}}</td>
+                <td class="centr-y">{{prodDetails.ammount}}</td>
             </tr>
 
-            <tr>
+            <!-- <tr>
                 <td><img src="../../../assets/produc_images/macbook.jpg" height="100px" width="100px"></td>
                 <td class="centr-y">Macbook Pro</td>
                 <td class="centr-y">Dec 10, 2021</td>
+                <td class="centr-y">1</td>
                 <td class="centr-y">2000Rs</td>
             </tr>
             <tr>
                 <td><img src="../../../assets/produc_images/macbook.jpg" height="100px" width="100px"></td>
                 <td class="centr-y">Macbook Pro</td>
                 <td class="centr-y">Dec 10, 2021</td>
+                <td class="centr-y">1</td>
                 <td class="centr-y">2000Rs</td>
-            </tr>
+            </tr> -->
         </tbody>
     </table>
 </div>

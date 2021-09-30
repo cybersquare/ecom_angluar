@@ -27,4 +27,8 @@ export class CustomerserviceService {
   placeOrder(data: any):Observable<HttpResponse<any>>{
     return this.httpclient.post<any>(this.ProdURL+"PlaceOrder", data, {observe: "response"})
   }
+
+  viewOrders(data: any):Observable<HttpResponse<any>>{
+    return this.httpclient.post<any>(this.ProdURL+"viewOrders", data, {observe: "response"})
+  }
 }

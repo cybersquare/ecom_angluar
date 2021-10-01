@@ -101,13 +101,6 @@ export class MainToolbarComponent  {
     }
   }
 
-  // openSnackBar() {
-  //   this._snackBar.open("No products available", "Dismiss",{
-  //     horizontalPosition: this.horizontalPosition,
-  //     verticalPosition: this.verticalPosition,
-
-  //   });
-  // }
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   openSnackBar() {

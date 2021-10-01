@@ -26,17 +26,10 @@ export class MainHeaderComponent implements  OnInit {
     this.brodcastService.subscribe("LOGGEDIN", () => {
       this.username=localStorage.getItem('username');
       this.loginStatus$ = this.authService.isLoggedIn();
-      if (localStorage.getItem('customerType')) {
-        this.isCustomer=true;
-      }
-      else{
-        this.isReseller=true;
-      }
     });
    
   }
   
-
   ngOnInit(): void {
     this.loginStatus$ = this.authService.isLoggedIn()
     

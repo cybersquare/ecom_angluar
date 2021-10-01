@@ -1,4 +1,4 @@
-<div class="top-margin">
+<div class="main-div">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -12,27 +12,12 @@
         </thead>
         <tbody>
             <tr *ngFor="let prodDetails of ProductDetails.purchaseproducts">
-                <td><img src="../../../assets/produc_images/macbook.jpg" height="100px" width="100px"></td>
+                <td><img src="" height="100px" width="100px" onerror="this.src='../../assets/produc_images/default.png'"></td>
                 <td class="centr-y">{{prodDetails.productName}}</td>
                 <td class="centr-y">{{prodDetails.orderdate}}</td>
                 <td class="centr-y">{{prodDetails.quantity}}</td>
                 <td class="centr-y">{{prodDetails.ammount}}</td>
             </tr>
-
-            <!-- <tr>
-                <td><img src="../../../assets/produc_images/macbook.jpg" height="100px" width="100px"></td>
-                <td class="centr-y">Macbook Pro</td>
-                <td class="centr-y">Dec 10, 2021</td>
-                <td class="centr-y">1</td>
-                <td class="centr-y">2000Rs</td>
-            </tr>
-            <tr>
-                <td><img src="../../../assets/produc_images/macbook.jpg" height="100px" width="100px"></td>
-                <td class="centr-y">Macbook Pro</td>
-                <td class="centr-y">Dec 10, 2021</td>
-                <td class="centr-y">1</td>
-                <td class="centr-y">2000Rs</td>
-            </tr> -->
         </tbody>
     </table>
 </div>

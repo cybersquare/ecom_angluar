@@ -119,8 +119,8 @@
                                 <mat-form-field appearance="fill" class="full-width">
                                     <mat-label>Status</mat-label>
                                     <mat-select formControlName="status" [ngClass]="{ 'is-invalid': submitted && f.status.errors }">
-                                        <mat-option value="active">Active</mat-option>
-                                        <mat-option value="draft">Draft</mat-option>
+                                        <mat-option value="Active">Active</mat-option>
+                                        <mat-option value="Draft">Draft</mat-option>
                                     </mat-select>
                                     <mat-error *ngIf="submitted && f.status.errors">
                                         Please select the status

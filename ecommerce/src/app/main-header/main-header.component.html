@@ -3,10 +3,10 @@
         <div fxLayout="row">
             <button mat-button>
           <mat-icon>home</mat-icon>
-          <span class="logo">CS ANGULAR</span>
+          <span class="logo">CyberSquare</span>
         </button>
             <div *ngIf="!deviceXs" fxLayout="row">
-                <button mat-button routerLink="">Home</button>
+                <button mat-button (click)="viewHome()">Home</button>
                 <button mat-button routerLink="AboutUs">About us</button>
                 <button mat-button routerLink="contact-us">Contact us</button>
             </div>
@@ -14,23 +14,23 @@
         </div>
         <div>
 
-            <button *ngIf="deviceXs" mat-icon-button [matMenuTriggerFor]="menu">
+            <button *ngIf="deviceXs " mat-icon-button [matMenuTriggerFor]="menu ">
           <mat-icon>more_vert</mat-icon>
         </button>
 
-            <button *ngIf="!deviceXs" mat-button [matMenuTriggerFor]="menu" fxLayoutAlign="end">
+            <button *ngIf="!deviceXs " mat-button [matMenuTriggerFor]="menu " fxLayoutAlign="end ">
                 <mat-icon>person_add</mat-icon>
         </button>
         </div>
     </mat-toolbar-row>
-    <mat-toolbar-row *ngIf="deviceXs" fxLayoutAlign="space-between end">
+    <mat-toolbar-row *ngIf="deviceXs " fxLayoutAlign="space-between end ">
         <button mat-button>Home</button>
         <button mat-button>About us</button>
         <button mat-button>Contact us </button>
     </mat-toolbar-row>
 </mat-toolbar>
 <!-- Menu Items -->
-<mat-menu #menu="matMenu" fxLayoutAlign="end">
+<mat-menu #menu="matMenu" fxLayoutAlign="end ">
     <button mat-menu-item routerLink="/register" *ngIf="!(loginStatus$|async) as status">Register</button>
     <button mat-menu-item routerLink="/login" *ngIf="!(loginStatus$|async) as status">Login</button>
     <button mat-menu-item (click)="onLogout()" *ngIf="(loginStatus$|async) as status">Logout</button>
@@ -38,6 +38,4 @@
     <button mat-menu-item (click)="viewCart()" *ngIf="(loginStatus$|async) as status">View Cart</button>
     <button mat-menu-item (click)="viewOrder()" *ngIf="(loginStatus$|async) as status">View Order</button>
     <button mat-menu-item (click)="changePassword()" *ngIf="(loginStatus$|async) as status">Change Password</button>
-    <button mat-menu-item routerLink="/reseller">Go to reseller page(test)</button>
-    <button mat-menu-item routerLink="/customer">Go to customer page(test)</button>
 </mat-menu>

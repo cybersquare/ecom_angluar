@@ -1,7 +1,7 @@
-<p class="pstart">view-product works!</p>
-<div fxLayout="row" class="btm-margin" fxLayoutGap="20px">
+
+<div fxLayout="row" class="btm-margin main-div" fxLayoutGap="20px">
     <div fxFlex="40">
-        <img src="../../assets/produc_images/red shirt.jpg" class="img-prod" alt="" srcset="">
+        <img src="https://cs-ecom.herokuapp.com{{productdata.img}}" class="img-prod" alt="" srcset="" onerror="this.src='../../assets/produc_images/default.png'">
     </div>
     <div fxFlex="60">
 
@@ -12,9 +12,6 @@
             </mat-card-header>
 
             <mat-card-content>
-                <!-- <bar-rating [(rate)]="faoRate" [max]="10"></bar-rating> -->
-                <!-- <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating> -->
-                <!--  -->
                 <ngb-rating [(rate)]="currentRate">
                     <ng-template let-fill="fill" let-index="index">
                         <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>

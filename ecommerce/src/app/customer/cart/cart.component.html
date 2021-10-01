@@ -1,9 +1,9 @@
-<div class="bgcolor">
-    <h1>Buy your product</h1>
-    <div fxLayoutGap="20px" fxLayout="row" fxLayout.md="column" fxLayoutAlign="start start">
-        <div class="cart" fxFlex="60" fxFlex.md="100%">
-            <div fxLayout="row wrap" fxLayoutGap="20px " class="cart-all">
-                <mat-card class="example-card cart-prod-card" fxFlex="46%" fxFlex.xs="100%" fxFlexFill *ngFor="let prod of productdata.productdata">
+<div class="bg">
+    <div class="container product-card-container">
+        <h1>Buy your products</h1>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 mb-4 product-card-div">
+                <mat-card *ngFor="let prod of productdata.productdata" class="mt-2">
                     <mat-card-header>
                         <mat-card-title>{{prod.productname}}</mat-card-title>
 
@@ -12,7 +12,7 @@
                         </button>
                     </mat-card-header>
                     <mat-card-content fxLayoutAlign="center start">
-                        <img src="../../../assets/produc_images/iphone.jpg" height="250px" width="250px" alt="" srcset="">
+                        <img src="https://cs-ecom.herokuapp.com{{prod.imgurl}}" height="250px" width="250px" alt="" srcset="" onerror="this.src='../../assets/produc_images/default.png'">
                     </mat-card-content>
 
                     <mat-card-content fxLayoutAlign="center start">
@@ -32,22 +32,20 @@
                         <button mat-flat-button color="warn">Remove</button>
                     </mat-card-actions>
                 </mat-card>
-            </div>
 
-        </div>
-        <div fxFlex="40" fxFlex.md="100%">
-            <div fxLayout="column" fxLayoutGap="20px ">
-                <!-- Bill ammount card -->
-                <mat-card>
+
+            </div>
+            <div class="col-lg-8 col-md-8 mb-4">
+                <mat-card class="">
                     <h3>Total Bill Ammount : {{productdata.totalAmmount | currency:'INR'}}</h3>
 
-                    <mat-form-field appearance="fill">
+                    <mat-form-field appearance="fill" class="example-full-width">
                         <mat-label>Enter your coupon code </mat-label>
                         <input matInput placeholder="ABD13F">
                     </mat-form-field>
                 </mat-card>
-                <!-- Bill ammount card ends here -->
-                <mat-card fxLayout="row wrap">
+
+                <mat-card class="mt-3">
                     <!-- stepper form starting -->
                     <mat-stepper [linear]="isLinear" #stepper>
                         <mat-step [stepControl]="firstFormGroup">

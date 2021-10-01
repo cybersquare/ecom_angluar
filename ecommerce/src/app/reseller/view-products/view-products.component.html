@@ -3,7 +3,7 @@
         <div class="col-lg-3 col-md-6 mb-4 product-card-div" *ngFor="let item of products">
             <mat-card class="product-card">
                 <mat-card-title>{{item.title}}</mat-card-title>
-                <img mat-card-image src="https://cs-ecom.herokuapp.com{{item.imgURl}}" alt="Photo of the Tshirt">
+                <img mat-card-image src="https://cs-ecom.herokuapp.com{{item.imgURl}}" alt="Photo of the Tshirt" onerror="this.src='../../assets/produc_images/default.png'">
                 <mat-card-content>
                     <h3><b>Price:</b> {{item.price}}</h3>
                     <h3><b>Stock:</b> {{item.quantity}}</h3>

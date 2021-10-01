@@ -68,10 +68,18 @@ export class MainToolbarComponent  {
   }
   ngOnInit(): void {
     // console.log(this.listOfProducts)
+    this.AllProducts()
   }
   sideBarScroll() {
     let e = this.deviceXs ? 160 : 130;
     return e - this.topVal;
+  }
+  public allproducts:any;
+  AllProducts(){
+    this.commonservice.allProducts().subscribe((res: any)=>{
+      this.allproducts = res
+      console.log(this.allproducts)
+    });
   }
   productList: any;
   search : string ="";

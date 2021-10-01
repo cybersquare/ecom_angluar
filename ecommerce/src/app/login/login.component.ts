@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
         this.boradcastService.boradcast("LOGGEDIN"); // Notify main header to change items in the menu
         // Redirect to the page accoring the user role
         if(res.customerType=="customer"){
-          this._router.navigate(['/customer']);
+          this._router.navigate(['']);
         }
         else if(res.customerType=="reseller"){
           this._router.navigate(['/reseller']);

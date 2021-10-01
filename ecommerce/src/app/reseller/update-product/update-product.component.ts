@@ -34,7 +34,6 @@ export class UpdateProductComponent implements OnInit {
       this.prodStatus = data.prodStatus;
       this.updateInstance = new UpdateProduct(this.prodId,this.prodTitle,this.prodDesc,this.prodPrice,this.prodQuantity,this.prodStatus);
       console.log(this.updateInstance)
-      // console.log(updateInstance)
          }
    }
   
@@ -53,8 +52,6 @@ export class UpdateProductComponent implements OnInit {
     }
     });
   }
-  
-   
   ngOnInit(): void {
   }
 

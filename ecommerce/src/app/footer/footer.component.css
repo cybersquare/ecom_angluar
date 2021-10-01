@@ -10,3 +10,8 @@
 .footer-spacer {
     flex: 1 1 auto;
 }
+
+footer {
+    background-color: rgb(17, 17, 138);
+    color: white;
+}

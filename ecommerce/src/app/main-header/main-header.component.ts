@@ -16,7 +16,9 @@ export class MainHeaderComponent implements  OnInit {
   username$! : Observable<string>
   userType$! : Observable<string>
   username=localStorage.getItem('username');
-
+  public _usertype=localStorage.getItem('customerType');
+  public isCustomer=false;
+  public isReseller=false;
   constructor(private authService: AuthService,
     private _router:Router,
     private brodcastService:BroadcastService){
@@ -24,12 +26,28 @@ export class MainHeaderComponent implements  OnInit {
     this.brodcastService.subscribe("LOGGEDIN", () => {
       this.username=localStorage.getItem('username');
       this.loginStatus$ = this.authService.isLoggedIn();
+      if (localStorage.getItem('customerType')) {
+        this.isCustomer=true;
+      }
+      else{
+        this.isReseller=true;
+      }
     });
    
   }
   
+
   ngOnInit(): void {
     this.loginStatus$ = this.authService.isLoggedIn()
+    
+  }
+  viewHome(){
+    if(localStorage.getItem("customerType")=="customer"){
+      this._router.navigate(['']);
+    }
+    else if(localStorage.getItem("customerType")=="reseller"){
+      this._router.navigate(['/reseller']);
+    }
   }
   onLogout(){
     this.authService.logout();
@@ -53,4 +71,6 @@ export class MainHeaderComponent implements  OnInit {
   changePassword(){
     this._router.navigate(['/change-password']);
   }
+  
+ 
 }

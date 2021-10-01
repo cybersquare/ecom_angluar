@@ -1,21 +1,12 @@
 <article [class.content]="!deviceXs" [class.content-mob]="deviceXs" (scroll)="onScroll($event)">
-    <mat-toolbar>
-        <button *ngIf="deviceXs" type="button" mat-icon-button (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-        <mat-form-field class="example-full-width">
-            <input type="text" matInput placeholder="search product" [(ngModel)]="search">
-            <button mat-icon-button (click)="searchProduct()"><mat-icon matSuffix>search</mat-icon></button>
-        </mat-form-field>
-    </mat-toolbar>
-
     <mat-drawer-container class="example-container">
-        <mat-drawer #drawer [mode]="deviceXs?'over':'side'" [opened]="deviceXs?false:true" position="start" fxFlex="25" fxLayout="column" fxLayoutAlign="start space-between" [style.marginTop.px]="10" [style.top.px]="sideBarScroll()">
+        <!-- <mat-drawer class="sidenav" #drawer [mode]="deviceXs?'over':'side'" [opened]="deviceXs?false:true" position="start" fxFlex="25" fxLayout="column" fxLayoutAlign="start space-between" [style.marginTop.px]="10" [style.top.px]="sideBarScroll()"> -->
+        <mat-drawer class="sidenav" #drawer [mode]="deviceXs?'over':'side'" [opened]="deviceXs?false:true" position="start" fxFlex="25" fxLayout="column" fxLayoutAlign="start space-between" [style.marginTop.px]="10">
             <!-- <mat-list role="list" class="list-width" *ngFor="let i of [].constructor(20)">
                 <mat-list-item role="listitem" class="list-item" matRipple>Side Bar Item List</mat-list-item>
             </mat-list> -->
             <mat-accordion class="example-headers-align" multi>
-                <mat-expansion-panel>
+                <mat-expansion-panel class="mat-elevation-z0">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             Shoes
@@ -28,7 +19,7 @@
                     </mat-selection-list>
                 </mat-expansion-panel>
 
-                <mat-expansion-panel>
+                <mat-expansion-panel class="mat-elevation-z0">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             Electronics
@@ -42,7 +33,7 @@
                     </mat-selection-list>
                 </mat-expansion-panel>
 
-                <mat-expansion-panel>
+                <mat-expansion-panel class="mat-elevation-z0">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
                             Dress
@@ -59,6 +50,23 @@
         </mat-drawer>
         <!-- <p>Test</p> -->
         <mat-drawer-content>
+            <!-- <mat-toolbar>
+                <button *ngIf="deviceXs" type="button" mat-icon-button (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+                </button> -->
+            <!-- <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="search product" [(ngModel)]="search">
+                <button mat-icon-button (click)="searchProduct()"><mat-icon matSuffix>search</mat-icon></button>
+            </mat-form-field> -->
+            <!-- </mat-toolbar> -->
+
+            <!-- Creating search bar -->
+            <div class="input-group mt-3 mb-3 example-full-width mx-auto">
+                <div class='col-sm-10'>
+                    <input type="search" class="form-control" placeholder="Search Product" [(ngModel)]="search">
+                </div>
+                <button mat-icon-button (click)="searchProduct()"><mat-icon matSuffix>search</mat-icon></button>
+            </div>
 
             <!-- creating Slider -->
             <div class="slider-sizing">
@@ -91,11 +99,11 @@
             </div>
             <!-- End slider -->
             <div class="example-sidenav-content" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
-                <mat-card class="example-card" *ngFor="let i of [].constructor(9)">
+                <mat-card class="example-card mt-4 mb-4" *ngFor="let product of allproducts">
                     <mat-card-header>
                         <div mat-card-avatar class="example-header-image" fxLayoutAlign.xs="center center"></div>
                         <mat-card-title>
-                            iPhone SE 2020 64GB Red</mat-card-title>
+                            {{product.Pname}}</mat-card-title>
                         <mat-card-subtitle>
                             <mat-icon style="color: gold;">star</mat-icon>
                             <mat-icon style="color: gold;">star</mat-icon>
@@ -104,19 +112,15 @@
                             <mat-icon style="color: gold;">star</mat-icon>
                         </mat-card-subtitle>
                     </mat-card-header>
-                    <img mat-card-image src="../../assets/produc_images/iphone.jpg" alt="Photo of a Shiba Inu">
-                    <mat-card-content>
-                        <p>
-
-                        </p>
-                    </mat-card-content>
+                    <img mat-card-image src="https://cs-ecom.herokuapp.com{{product.img}}" alt="Photo" onerror="this.src='../../assets/produc_images/default.png'">
                     <mat-card-actions>
                         <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
                             <mat-icon>favorite</mat-icon>
                           </button>
                         <button mat-icon-button color="primary" aria-label="Example icon button with a heart icon">
                             <mat-icon>share</mat-icon>
-                          </button> &nbsp; &nbsp;&nbsp;&nbsp;
+                          </button>
+                        <!-- &nbsp; &nbsp;&nbsp;&nbsp; -->
                         <button mat-raised-button color="accent">Add to bag</button>
                         <button mat-raised-button color="accent">Purchase</button>
                     </mat-card-actions>

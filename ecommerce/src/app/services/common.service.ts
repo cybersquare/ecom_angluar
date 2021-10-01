@@ -67,5 +67,9 @@ export class CommonService {
     console.log("working");
     return this.httpclient.post('http://cs-ecom.herokuapp.com/common/changePassword',data);
   }
+  allProducts(){
+    console.log("working");
+    return this.httpclient.get('https://cs-ecom.herokuapp.com/common/Ang_AllProducts');
+  }
   
 }

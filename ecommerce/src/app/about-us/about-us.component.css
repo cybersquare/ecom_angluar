@@ -1,5 +1,5 @@
-p {
-    margin-top: 60px;
+.main-div {
+    margin-top: 80px;
 }
 
 
@@ -13,4 +13,19 @@ p {
 
 .img {
     height: 200px
+}
+
+mat-card {
+    background-color: rgb(236, 230, 230)
+}
+
+p {
+    font-size: large;
+    font-family: initial;
+    font-weight: bolder;
+    color: black
+}
+
+h2 {
+    font-weight: bold;
 }

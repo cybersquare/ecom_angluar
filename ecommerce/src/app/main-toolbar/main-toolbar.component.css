@@ -60,9 +60,13 @@ mat-drawer {
 }
 
 .sidenav {
-    background-color: white;
+    background-color: #C8DAD2;
     top: 55px;
     bottom: 50px;
+}
+
+.mat-elevation-z0 {
+    background-color: #C8DAD2;
 }
 
 .example-card {

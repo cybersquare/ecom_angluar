@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminService {
-  // url="http://cs-ecom.herokuapp.com/common/";
-  url="http://localhost:8000/common/";
+  url="http://cs-ecom.herokuapp.com/common/";
+  // url="http://localhost:8000/common/";
   constructor( private httpclient:HttpClient ) { }
   inactiveResellers(){
     return this.httpclient.get<any>(this.url+"ResellersApproval");

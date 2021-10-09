@@ -8,13 +8,14 @@
 }
 
 .sidenav-font {
-    color: white;
+    color: black;
+    font-weight: bold;
     font-size: large;
     font-family: 'Lucida Sans';
 }
 
 .sidenav {
-    background-color: #3e3eb3;
+    background-color: #C8DAD2;
 }
 
 
